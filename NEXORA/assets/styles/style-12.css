@@ -1,0 +1,24 @@
+
+#capstone{--cap-line:rgba(133,177,210,.2)}
+.nq-cap-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:18px}
+.nq-cap-chip{padding:9px 13px;border:1px solid var(--cap-line);border-radius:12px;color:var(--c1);font:700 11px "JetBrains Mono",monospace;background:var(--glass)}
+.nq-cap-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.nq-cap-grid>.card{min-width:0}
+#nqCapstoneForm textarea{width:100%;resize:vertical;background:#0e2034;color:var(--ink);border:1px solid var(--stroke);border-radius:11px;padding:11px;font:inherit}
+.nq-rubric-list{display:grid;gap:10px;margin-top:14px}
+.nq-rubric{border:1px solid var(--stroke);border-radius:15px;padding:12px 14px;min-width:0;background:rgba(255,255,255,.025)}
+.nq-rubric legend{padding:0 5px;font-size:13px;font-weight:800}
+.nq-rubric legend b{color:var(--c1);font:700 10px "JetBrains Mono",monospace;margin-left:8px}
+.nq-rubric label{display:flex;gap:9px;align-items:flex-start;padding:7px 0;color:var(--mut);font-size:12px;line-height:1.5;cursor:pointer}
+.nq-rubric input{flex:none;margin-top:3px;accent-color:var(--c1)}
+.nq-score-panel{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:15px;padding:16px;border:1px solid var(--cap-line);border-radius:17px;background:linear-gradient(120deg,rgba(34,190,180,.1),rgba(80,110,220,.1))}
+.nq-score-panel small{font:700 10px "JetBrains Mono",monospace;letter-spacing:1px;color:var(--mut)}
+.nq-score-panel strong{display:block;font-size:38px;line-height:1.2;color:var(--c1)}
+.nq-score-panel strong span{font-size:15px;color:var(--mut)}
+.nq-score-panel p{font-size:11px;margin-top:5px;max-width:34ch}
+.nq-score-ring{width:72px;height:72px;flex:none;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--c1) 0deg,rgba(255,255,255,.1) 0deg);position:relative}
+.nq-score-ring:before{content:"";position:absolute;inset:7px;border-radius:50%;background:#10243a}
+.nq-score-ring span{z-index:1;font:700 13px "JetBrains Mono",monospace}
+.nq-cap-note{font-size:11px;margin-top:13px;padding:11px;border-left:3px solid var(--warn);background:rgba(255,195,107,.06);border-radius:0 10px 10px 0}
+@media(max-width:900px){.nq-cap-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.nq-score-ring{transition:none}}

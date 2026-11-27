@@ -1,0 +1,7 @@
+
+:focus-visible{outline:3px solid #9cecff!important;outline-offset:3px!important}
+button:disabled{cursor:not-allowed;opacity:.55}
+img,iframe,video{max-width:100%}
+.view,[id$="Title"],[id$="title"]{scroll-margin-top:88px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(max-width:520px){.row,.actions,.journal-actions{flex-wrap:wrap}.row>*{max-width:100%}input,select,textarea{font-size:16px!important}}

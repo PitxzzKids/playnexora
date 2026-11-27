@@ -1,0 +1,125 @@
+
+
+/* ==========================================================
+   NEXORA LAYOUT HOTFIX — sidebar, header, content and mobile
+   Keeps existing modules, visual theme and JavaScript intact.
+   ========================================================== */
+:root { --navw: 248px; }
+html { overflow-x: hidden; }
+body { min-width: 320px; overflow-x: hidden; }
+
+/* The Blackhole visibility layer must never change the sidebar's layout mode. */
+body > .topnav#mainSidebar {
+  position: fixed !important;
+  z-index: 120 !important;
+  left: 16px !important;
+  top: 16px !important;
+  bottom: 16px !important;
+  right: auto !important;
+  width: 220px !important;
+  height: auto !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  transform: none;
+}
+
+/* Keep the header and page content in the space beside the sidebar. */
+body > .hud {
+  position: sticky !important;
+  z-index: 110 !important;
+  top: 12px !important;
+  width: calc(100% - var(--navw) - 48px) !important;
+  max-width: none !important;
+  margin: 14px 24px 0 calc(var(--navw) + 24px) !important;
+  box-sizing: border-box;
+}
+body > main#mainContent {
+  position: relative !important;
+  z-index: 2 !important;
+  width: calc(100% - var(--navw) - 48px) !important;
+  max-width: none !important;
+  margin: 24px 24px 145px calc(var(--navw) + 24px) !important;
+  min-width: 0;
+  box-sizing: border-box;
+}
+body > footer {
+  position: relative !important;
+  z-index: 2 !important;
+  width: calc(100% - var(--navw) - 48px) !important;
+  margin-left: calc(var(--navw) + 24px) !important;
+  margin-right: 24px !important;
+  box-sizing: border-box;
+}
+
+/* Prevent wide cards, forms and rubric grids from forcing horizontal overlap. */
+#mainContent, #mainContent .view, #mainContent .card,
+#mainContent .nq-cap-grid, #mainContent .nq-cap-grid > *,
+#mainContent .grid, #mainContent .panel, #mainContent form {
+  min-width: 0;
+  max-width: 100%;
+}
+#capstone .nq-cap-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+#mainContent input, #mainContent textarea, #mainContent select {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Collapsed desktop navigation: reserve the actual sidebar footprint. */
+body.sidebar-collapsed { --navw: 92px; }
+body.sidebar-collapsed > .topnav#mainSidebar {
+  width: 68px !important;
+}
+
+/* Tablet and phone: sidebar becomes an off-canvas drawer, not a page column. */
+@media (max-width: 900px) {
+  :root { --navw: 0px; }
+  body > .topnav#mainSidebar {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: min(290px, 86vw) !important;
+    height: auto !important;
+    z-index: 120 !important;
+    border-radius: 0 22px 22px 0 !important;
+    transform: translateX(-105%);
+    transition: transform .25s ease;
+  }
+  body.sidebar-open > .topnav#mainSidebar {
+    transform: translateX(0);
+  }
+  body > .hud {
+    position: relative !important;
+    top: auto !important;
+    width: calc(100% - 24px) !important;
+    margin: 12px 12px 0 !important;
+  }
+  body > main#mainContent {
+    width: calc(100% - 24px) !important;
+    margin: 22px 12px 130px !important;
+  }
+  body > footer {
+    width: calc(100% - 24px) !important;
+    margin: 0 12px 120px !important;
+  }
+  body.sidebar-collapsed { --navw: 0px; }
+}
+
+@media (max-width: 680px) {
+  #capstone .nq-cap-grid { grid-template-columns: minmax(0, 1fr); }
+  #mainContent .grid,
+  #mainContent .two-col,
+  #mainContent .split-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  body > .hud { gap: 8px; padding: 9px 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body > .topnav#mainSidebar { transition: none !important; }
+}
+

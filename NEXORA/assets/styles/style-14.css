@@ -1,0 +1,10 @@
+
+/* Quality refinement: accessibility, readable content, and stable responsive behavior */
+:focus-visible{outline:3px solid var(--c1)!important;outline-offset:3px!important}
+::selection{background:rgba(34,225,255,.28);color:var(--ink)}
+img,iframe,canvas,video{max-width:100%}
+button:disabled{opacity:.55;cursor:not-allowed;transform:none!important}
+[aria-live]{overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(max-width:520px){.glass{border-radius:18px}.card{padding:16px}button,.btn{min-height:42px}.term{overflow-wrap:anywhere;white-space:pre-wrap}}
+@media print{body{background:#fff!important;color:#111!important}.bg,.dock,.hud{display:none!important}.glass{background:#fff!important;color:#111!important;box-shadow:none!important;border:1px solid #bbb!important}.view{display:block!important;break-inside:avoid}}

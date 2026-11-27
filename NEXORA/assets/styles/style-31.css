@@ -1,0 +1,15 @@
+
+#mainContent .nexora-word {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  backface-visibility: hidden;
+}
+#mainContent .nq-greeting .nexora-word {
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  #mainContent .nexora-word { opacity: 1 !important; transform: none !important; }
+}

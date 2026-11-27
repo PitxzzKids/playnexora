@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>NEXORA TJKT — Learning &amp; Network Simulation Studio</title>
+<meta content="NEXORA TJKT: media pembelajaran jaringan komputer berbasis kompetensi dengan materi bertahap, simulasi interaktif, proyek, evaluasi formatif, dan portofolio praktik." name="description"/>
+<meta content="#03040b" name="theme-color"/>
+<meta content="dark" name="color-scheme"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+
+
+<link href="assets/styles/style-01.css" rel="stylesheet"/><link href="assets/styles/style-02.css" rel="stylesheet"/><link href="assets/styles/style-03.css" rel="stylesheet"/><link href="assets/styles/style-04.css" rel="stylesheet"/><link href="assets/styles/style-05.css" rel="stylesheet"/><link href="assets/styles/style-06.css" rel="stylesheet"/><link href="assets/styles/style-07.css" rel="stylesheet"/><link href="assets/styles/style-08.css" rel="stylesheet"/><link href="assets/styles/style-09.css" rel="stylesheet"/><link href="assets/styles/style-10.css" rel="stylesheet"/><link href="assets/styles/style-11.css" rel="stylesheet"/><link href="assets/styles/style-12.css" rel="stylesheet"/><link href="assets/styles/style-13.css" rel="stylesheet"/><link href="assets/styles/style-14.css" rel="stylesheet"/><link href="assets/styles/style-15.css" rel="stylesheet"/><link href="assets/styles/style-16.css" rel="stylesheet"/><link href="assets/styles/style-17.css" rel="stylesheet"/><link href="assets/styles/style-18.css" rel="stylesheet"/><link href="assets/styles/style-19.css" rel="stylesheet"/><link href="assets/styles/style-20.css" rel="stylesheet"/><link href="assets/styles/style-21.css" rel="stylesheet"/><link href="assets/styles/style-22.css" rel="stylesheet"/><link href="assets/styles/style-23.css" rel="stylesheet"/><link href="assets/styles/style-24.css" rel="stylesheet"/><link href="assets/styles/style-25.css" rel="stylesheet"/><link href="assets/styles/style-26.css" rel="stylesheet"/><link href="assets/styles/style-27.css" rel="stylesheet"/><link href="assets/styles/style-28.css" rel="stylesheet"/><link href="assets/styles/style-29.css" rel="stylesheet"/><link href="assets/styles/style-30.css" rel="stylesheet"/><link href="assets/styles/style-31.css" rel="stylesheet"/><!-- NEXORA project structure: CSS and JavaScript are separated into assets/. --></head>
+<body>
+<a class="skip-link" href="#mainContent">Lewati navigasi</a>
+<div aria-label="Halaman login" id="authGate">
+<div class="auth-layout">
+<div class="auth-copy">
+<div class="auth-mark"><img alt="Logo NEXORA" class="nexora-logo-symbol" src="assets/images/logo.png"/> NEXORA / TJKT</div>
+<h1>Jaringan itu <span class="grad">seru.</span><br/>Naik level.</h1>
+<p>Masuk ke ruang belajar jaringan komputer. Pelajari konsep, praktikkan konfigurasi, selesaikan tantangan, dan evaluasi kemampuanmu dalam satu tempat.</p>
+<div class="auth-mini"><span>✦ Interactive learning</span><span>⌘ Network lab</span><span>↗ Mobile friendly</span></div>
+</div>
+<div class="auth-card glass">
+<div class="eyebrow">Akses pembelajaran</div><h2>Selamat datang.</h2><p>Siswa memasukkan nama. Guru dan Admin cukup memasukkan password.</p>
+<form id="gateForm">
+<div class="field"><label for="gateName">Nama pengguna</label><input autocomplete="username" id="gateName" maxlength="50" placeholder="Masukkan nama kamu" required=""/></div>
+<div class="field"><label>Pilih peran</label>
+<div class="role-picker">
+<div class="role-option"><input checked="" id="gateRoleStudent" name="gateRole" type="radio" value="student"/><label for="gateRoleStudent"><span class="role-icon">🎓</span>Siswa<small>Progress sendiri</small></label></div>
+<div class="role-option"><input id="gateRoleTeacher" name="gateRole" type="radio" value="teacher"/><label for="gateRoleTeacher"><span class="role-icon">👨‍🏫</span>Guru<small>Pantau siswa</small></label></div>
+<div class="role-option"><input id="gateRoleAdmin" name="gateRole" type="radio" value="admin"/><label for="gateRoleAdmin"><span class="role-icon">⚙️</span>Admin<small>Kelola NEXORA</small></label></div>
+</div></div>
+<div class="field" id="gatePassBox" style="display:none"><label for="gatePassword">Password</label><input autocapitalize="off" autocomplete="current-password" autocorrect="off" id="gatePassword" placeholder="Masukkan password" spellcheck="false" type="password"/></div>
+<div class="form-error" id="gateError" role="status"></div><button class="btn p" type="submit">Masuk ke NEXORA <span aria-hidden="true">↗</span></button>
+</form>
+<div class="auth-hint"><b>Mode sekolah:</b> Siswa melihat progress sendiri, Guru melihat data siswa yang tersimpan pada perangkat ini, dan Admin mengelola data demo, quest, materi, serta achievement. Sistem ini masih lokal browser, belum memakai database online.</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" id="introSequence">
+<div class="intro-grid"></div><div aria-hidden="true" class="intro-stars"></div>
+<div aria-hidden="true" class="intro-scene"><div class="intro-aura"></div><div class="intro-orbit intro-orbit-a"></div><div class="intro-orbit intro-orbit-b"></div><div class="intro-ring"></div><div class="intro-blackhole"><span></span></div><i class="intro-node node-a"></i><i class="intro-node node-b"></i><i class="intro-node node-c"></i></div>
+<div class="intro-content"><div class="intro-kicker"><i></i> MEDIA PEMBELAJARAN INTERAKTIF</div><div class="intro-title">NEXORA <span>TJKT</span></div><div class="intro-line"></div><div class="intro-by">SELAMAT BELAJAR, <b id="introStudentName">OPERATOR</b>!</div><p class="intro-message">Jelajahi materi, praktikkan simulasi, selesaikan misi, dan kuasai dunia jaringan komputer.</p><div class="intro-footer"><span>LEARN</span><b>•</b><span>SIMULATE</span><b>•</b><span>MASTER</span></div><div class="intro-loading-wrap"><div class="intro-loading-meta"><span id="introLoadingStatus">MENGHUBUNGKAN MODUL PEMBELAJARAN</span><b id="introLoadingPercent">0%</b></div><div aria-label="Memuat ruang belajar NEXORA" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="intro-loading" role="progressbar"><span id="introLoadingBar"></span></div><div class="intro-loading-label"><i></i> NEXORA LEARNING SYSTEM <i></i></div></div></div>
+</div>
+<svg aria-hidden="true" height="0" style="position:absolute" width="0"><defs>
+<symbol id="i-monitor" viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path></symbol>
+<symbol id="i-antenna" viewbox="0 0 24 24"><circle cx="12" cy="12" r="2"></circle><path d="M7.5 7.5a6 6 0 0 0 0 9M16.5 7.5a6 6 0 0 1 0 9M4.5 4.5a10 10 0 0 0 0 15M19.5 4.5a10 10 0 0 1 0 15"></path></symbol>
+<symbol id="i-plug" viewbox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"></path></symbol>
+<symbol id="i-drive" viewbox="0 0 24 24"><rect height="7" rx="2" width="18" x="3" y="13"></rect><path d="M5 13l2-8h10l2 8M7 16.5h.01M11 16.5h.01"></path></symbol>
+<symbol id="i-branch" viewbox="0 0 24 24"><circle cx="12" cy="19" r="2"></circle><circle cx="6" cy="6" r="2"></circle><circle cx="18" cy="6" r="2"></circle><path d="M12 17v-3c0-3-6-2-6-6M12 14c0-3 6-2 6-6"></path></symbol>
+<symbol id="i-calc" viewbox="0 0 24 24"><rect height="18" rx="2" width="14" x="5" y="3"></rect><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"></path></symbol>
+<symbol id="i-wrench" viewbox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></symbol>
+<symbol id="i-trophy" viewbox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"></path></symbol>
+<symbol id="i-home" viewbox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"></path></symbol>
+<symbol id="i-laptop" viewbox="0 0 24 24"><rect height="10" rx="2" width="14" x="5" y="5"></rect><path d="M2 19h20"></path></symbol>
+<symbol id="i-server" viewbox="0 0 24 24"><rect height="6" rx="2" width="18" x="3" y="4"></rect><rect height="6" rx="2" width="18" x="3" y="14"></rect><path d="M7 7h.01M7 17h.01"></path></symbol>
+<symbol id="i-thumb" viewbox="0 0 24 24"><path d="M7 11v9H4v-9zM7 11l4-8c2 0 3 1 3 3v3h5a2 2 0 0 1 2 2l-1 6a2 2 0 0 1-2 2H7"></path></symbol>
+<symbol id="i-book" viewbox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5M8 7h7"></path></symbol>
+<symbol id="i-theme" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v18a9 9 0 0 0 0-18z" fill="currentColor"></path></symbol>
+<symbol id="i-pad" viewbox="0 0 24 24"><path d="M6 8h12a4 4 0 0 1 4 4v2a3 3 0 0 1-5.2 2L15 14H9l-1.8 2A3 3 0 0 1 2 14v-2a4 4 0 0 1 4-4zM7 11v3M5.5 12.5h3M16 12h.01M18 13.5h.01"></path></symbol>
+</defs></svg>
+<div aria-hidden="true" class="bg"><canvas id="blackholeCanvas"></canvas><i></i><i></i><i></i></div>
+<span class="float" style="left:6%;top:30%"><svg class="i"><use href="#i-monitor"></use></svg></span><span class="float" style="right:5%;top:55%;animation-delay:-2s"><svg class="i"><use href="#i-antenna"></use></svg></span><span class="float" style="left:12%;bottom:22%;animation-delay:-4s"><svg class="i"><use href="#i-plug"></use></svg></span><span class="float" style="right:18%;top:14%;animation-delay:-3s"><svg class="i"><use href="#i-drive"></use></svg></span>
+<div id="cur"></div><div id="ring"></div>
+<header aria-label="NEXORA player HUD" class="hud glass">
+<button aria-label="Buka navigasi" class="mobile-menu-trigger" id="mobileMenuTrigger" type="button">☰</button>
+<div class="logo"><b class="nexora-logo-box"><img alt="Logo NEXORA" src="assets/images/logo.png"/></b><em style="font-style:normal">NEXORA TJKT</em></div>
+<div class="xp"><div><span id="rank">Newbie</span><span id="xpt">0 XP</span></div><div class="bar"><span id="xpb"></span></div></div>
+<button class="btn" data-v="login" id="sessionBtn" style="padding:7px 10px;font-size:12px">Login</button><span class="role-badge student" id="roleBadge">🎓 Siswa</span><button class="btn backup-btn" id="backupExport" title="Ekspor cadangan progres" type="button">⇩ Ekspor</button><button class="btn backup-btn" id="backupImport" title="Impor cadangan progres" type="button">⇧ Impor</button><button aria-pressed="false" class="btn" id="soundToggle" title="Aktifkan efek suara" type="button">♫ Suara: Mati</button>
+</header>
+<input accept="application/json,.json" hidden="" id="backupImportFile" type="file"/>
+<nav aria-label="Navigasi utama" class="topnav glass" id="mainSidebar">
+<div class="nav-brand">
+<span class="nav-brand-mark"><img alt="Logo NEXORA" src="assets/images/logo.png"/></span>
+<span class="nav-brand-copy"><b>NEXORA</b><small>LEARNING SYSTEM · TJKT</small></span>
+<button aria-label="Tutup menu" class="sidebar-close" id="sidebarClose" type="button">×</button>
+</div>
+<label class="nav-search"><span>⌕</span><input autocomplete="off" id="navSearch" placeholder="Cari menu..." type="search"/><kbd>/</kbd></label>
+<div class="nav-group">
+<div class="nav-caption">WORKSPACE</div>
+<button class="active" data-v="home"><span class="nav-ico">⌂</span><span>Dashboard</span><kbd>01</kbd></button>
+<button data-v="profile"><span class="nav-ico">◉</span><span>Profil Saya</span></button>
+<button data-v="analytics"><span class="nav-ico">◷</span><span>Analitik &amp; Pengaturan</span></button>
+</div>
+<div class="nav-group">
+<div class="nav-caption">LEARN</div>
+<button data-v="materials"><span class="nav-ico">▤</span><span>Learning Center</span></button>
+<button data-v="story"><span class="nav-ico">◈</span><span>Misi Cerita</span></button>
+<button data-v="quiz"><span class="nav-ico">✎</span><span>Assessment Center</span></button>
+<button data-v="game"><span class="nav-ico">▣</span><span>Game &amp; Tantangan</span><span class="nav-pill">PLAY</span></button>
+</div>
+<div class="nav-group">
+<div class="nav-caption">NETWORK LAB</div>
+<button data-v="lab"><span class="nav-ico">⌘</span><span>Virtual Network Lab</span></button>
+<button data-v="vlan"><span class="nav-ico">⌁</span><span>Simulasi VLAN</span></button>
+<button data-v="ip"><span class="nav-ico">#</span><span>IP &amp; Subnet</span></button>
+<button data-v="fix"><span class="nav-ico">⚒</span><span>Troubleshooting</span></button>
+<button data-v="journal"><span class="nav-ico">▧</span><span>Jurnal Praktik</span></button>
+</div>
+<div class="nav-group">
+<div class="nav-caption">PROGRESS</div>
+<button data-v="daily"><span class="nav-ico">☀</span><span>Daily Quest</span></button>
+<button data-v="skills"><span class="nav-ico">✦</span><span>Skill Tree</span></button>
+<button data-v="certificate"><span class="nav-ico">▣</span><span>Sertifikat</span></button>
+<button data-v="leaderboard"><span class="nav-ico">♜</span><span>Peringkat</span></button>
+</div>
+<div class="nav-group nav-management">
+<div class="nav-caption">MANAGEMENT</div>
+<button data-role-nav="teacher" data-v="teacher"><span class="nav-ico">♧</span><span>Teacher Center</span></button>
+<button data-role-nav="admin" data-v="admin"><span class="nav-ico">⚙</span><span>Admin Center</span></button>
+</div>
+<div class="nav-group">
+<div class="nav-caption">PORTOFOLIO &amp; PENILAIAN</div>
+<button data-v="capstone" type="button"><span class="nav-ico">✧</span><span>Project &amp; Portfolio</span><span class="nav-pill">100</span></button>
+</div>
+<div class="nav-group">
+<div class="nav-caption">INFORMASI</div>
+<button data-v="about"><span class="nav-ico">ⓘ</span><span>Tentang NEXORA</span></button>
+<button data-v="contact"><span class="nav-ico">✉</span><span>Kontak</span></button>
+</div>
+<div class="nav-footer">
+<div class="nav-status"><i></i><span><b>Workspace aktif</b><small>Mode pembelajaran lokal</small></span></div>
+<button class="nav-login" data-v="login" id="loginNav"><span class="nav-ico">↗</span><span>Masuk / Login</span></button>
+<button class="sidebar-collapse" id="sidebarCollapse" type="button"><span>⇤</span><span class="collapse-label">Ciutkan sidebar</span></button>
+</div>
+</nav>
+<div class="sidebar-scrim" id="sidebarScrim"></div>
+<main id="mainContent" tabindex="-1">
+<section class="view on" id="home">
+<div class="nq-dashboard">
+<div class="nq-dashboard-topline">
+<div>
+<div class="nq-kicker"><span class="nq-live-dot"></span> PLAYER HUB / TJKT SEASON 01</div>
+<h1 class="nq-greeting">Selamat datang, <span id="dashName">Operator</span>!</h1>
+<p class="nq-subtitle">Pilih tantangan, bangun topologi, dan naikkan level keahlian jaringanmu.</p>
+</div>
+<div class="nq-top-badges">
+<span class="nq-status"><i></i> LAB SYSTEM READY</span>
+<span class="nq-season">FASE F · NETWORK QUEST</span>
+</div>
+</div>
+<section class="nq-hero-game">
+<div class="nq-hero-copy">
+<div class="nq-season-label"><span>✦</span> MAIN QUEST · NETWORK OPERATIONS</div>
+<h2>LEVEL UP YOUR<br/><span>NETWORK SKILLS.</span></h2>
+<p>Jadilah teknisi jaringan andal. Pelajari konsep, selesaikan misi, konfigurasi perangkat, dan buktikan kemampuanmu melalui praktik interaktif.</p>
+<div class="nq-hero-actions">
+<button class="nq-primary-btn" data-gamepanel="simnetwork" data-v="game" type="button"><span>▶</span> LANJUTKAN PRAKTIK <b>→</b></button>
+<button class="nq-ghost-btn" data-v="story" type="button">BUKA MISSION MAP</button>
+</div>
+<div class="nq-hero-tags"><span>⌘ Virtual Network Lab</span><span>▤ Learning Quest</span><span>♜ XP &amp; Rewards</span></div>
+</div>
+<div aria-label="Ilustrasi ruang kontrol jaringan" class="nq-hero-scene">
+<div class="nq-scene-grid"></div>
+<div class="nq-scene-orbit nq-orbit-a"></div>
+<div class="nq-scene-orbit nq-orbit-b"></div>
+<div aria-hidden="true" class="nq-scene-blackhole"><div class="bh-halo"></div><div class="bh-disk bh-disk-back"></div><div class="bh-core"></div><div class="bh-disk bh-disk-front"></div><div class="bh-ring"></div><span class="bh-label">EVENT HORIZON</span></div>
+<span class="nq-scene-node nq-node-a"></span><span class="nq-scene-node nq-node-b"></span><span class="nq-scene-node nq-node-c"></span>
+<div class="nq-rack-art"><div class="nq-rack-top"></div><div class="nq-rack-unit"><i></i><i></i><i></i><i></i><span></span></div><div class="nq-rack-unit"><i></i><i></i><i></i><i></i><span></span></div><div class="nq-rack-unit"><i></i><i></i><i></i><i></i><span></span></div><div class="nq-rack-unit"><i></i><i></i><i></i><i></i><span></span></div></div>
+<div class="nq-floating-device nq-device-router"><span>⌁</span><small>ROUTER</small></div>
+<div class="nq-floating-device nq-device-switch"><span>▤</span><small>SWITCH</small></div>
+<div class="nq-scene-console"><div><span>● LIVE CONSOLE</span><span>SIMULATOR</span></div><pre id="heroTerm">$ menyiapkan terminal...</pre></div>
+</div>
+<div class="nq-hero-decoration">NQ // 2026</div>
+</section>
+<section aria-label="Ringkasan pemain" class="nq-player-strip">
+<div class="nq-player-stat nq-level-stat"><div class="nq-stat-icon">♛</div><div><small>PLAYER RANK</small><strong id="dashRank">Newbie</strong><span>Terus naikkan level</span></div><em>LVL</em></div>
+<div class="nq-player-stat"><div class="nq-stat-icon xp-icon">ϟ</div><div><small>TOTAL EXPERIENCE</small><strong><span id="dashXP">0</span> <small>XP</small></strong><span>Pengalaman terkumpul</span></div></div>
+<div class="nq-player-stat"><div class="nq-stat-icon quest-icon">⚑</div><div><small>MAIN QUEST</small><strong id="dashMissions">0/4</strong><span>Misi utama selesai</span></div></div>
+<div class="nq-player-stat"><div class="nq-stat-icon lab-icon">◉</div><div><small>LAB STATUS</small><strong class="nq-ready">READY</strong><span>Simulator tersedia</span></div></div>
+</section>
+<section aria-labelledby="nexoraLmsTitle" class="nexora-lms-hub">
+<div class="nexora-lms-heading"><div><div class="section-kicker">LEARNING MANAGEMENT SYSTEM</div><h2 id="nexoraLmsTitle">Ruang Pembelajaran NEXORA</h2><p>Semua aktivitas belajar TJKT dalam satu tempat. Pilih bagian yang ingin kamu gunakan.</p></div><span class="nexora-lms-tag">6 AREA UTAMA</span></div>
+<div class="nexora-lms-grid">
+<button class="nexora-lms-card" data-v="home" type="button"><span class="nexora-lms-icon">⌂</span><b>01 · Dashboard</b><small>Ringkasan progres, XP, aktivitas, dan akses cepat.</small><em>Buka dashboard →</em></button>
+<button class="nexora-lms-card" data-v="materials" type="button"><span class="nexora-lms-icon">▤</span><b>02 · Learning Center</b><small>Materi TJKT, konsep jaringan, referensi, dan latihan.</small><em>Pelajari materi →</em></button>
+<button class="nexora-lms-card" data-v="lab" type="button"><span class="nexora-lms-icon">⌘</span><b>03 · Virtual Network Lab</b><small>Eksperimen topologi dan uji konektivitas secara simulasi.</small><em>Masuk ke lab →</em></button>
+<button class="nexora-lms-card" data-v="quiz" type="button"><span class="nexora-lms-icon">✎</span><b>04 · Assessment Center</b><small>Kerjakan kuis, lihat umpan balik, dan tingkatkan pemahaman.</small><em>Mulai evaluasi →</em></button>
+<button class="nexora-lms-card" data-v="teacher" type="button"><span class="nexora-lms-icon">♧</span><b>05 · Teacher Center</b><small>Pantau progres siswa dan kelola tugas pembelajaran.</small><em>Area guru →</em></button>
+<button class="nexora-lms-card" data-v="capstone" type="button"><span class="nexora-lms-icon">✧</span><b>06 · Project &amp; Portfolio</b><small>Simpan rancangan jaringan, hasil praktik, dan refleksi proyek.</small><em>Buat portofolio →</em></button>
+</div>
+</section>
+<div class="nexora-student-assignments glass card" id="nexoraStudentAssignments">
+<div class="panel-head"><div><div class="section-kicker">CLASSROOM WORKSPACE</div><h2>Tugas Pembelajaran</h2><p>Tugas yang dibuat guru akan muncul di sini pada browser/perangkat yang sama.</p></div><span class="nexora-lms-tag" id="nexoraAssignmentCount">0 TUGAS</span></div>
+<div class="nexora-assignment-list" id="nexoraStudentAssignmentList"><p class="msg">Belum ada tugas. Guru dapat menambahkan tugas melalui Teacher Center.</p></div>
+</div>
+<div class="nq-dashboard-grid">
+<section class="nq-panel nq-game-library">
+<div class="nq-panel-heading">
+<div><div class="nq-kicker">CHOOSE YOUR MODE</div><h2>Game &amp; Tantangan</h2><p>Masuk ke arena latihan favoritmu.</p></div>
+<button class="nq-text-btn" data-v="game" type="button">LIHAT SEMUA <b>→</b></button>
+</div>
+<div class="nq-featured-games">
+<button class="nq-game-card nq-game-network" data-gamepanel="simnetwork" data-v="game" type="button">
+<span class="nq-game-art"><span class="nq-art-ring"></span><span class="nq-art-symbol">⌘</span><span class="nq-art-chip">15 QUEST</span></span>
+<span class="nq-game-info"><b>Network Operations Lab</b><small>Bangun topologi, konfigurasi IP/VLAN, dan uji konektivitas.</small><span class="nq-game-meta"><em>SIMULATION</em><strong>MASUK ↗</strong></span></span>
+</button>
+<button class="nq-game-card nq-game-cyber" data-gamepanel="cyber" data-v="game" type="button">
+<span class="nq-game-art"><span class="nq-art-shield">⬡</span><span class="nq-art-lock">●</span><span class="nq-art-chip">SECURITY</span></span>
+<span class="nq-game-info"><b>CyberShield Security Lab</b><small>Latihan mengenali tautan mencurigakan dan indikator file.</small><span class="nq-game-meta"><em>CYBER QUEST</em><strong>MASUK ↗</strong></span></span>
+</button>
+<button class="nq-game-card nq-game-classic" data-gamepanel="classic" data-v="game" type="button">
+<span class="nq-game-art"><span class="nq-art-layers">▤<i>▤</i><i>▤</i></span><span class="nq-art-chip">6 MODES</span></span>
+<span class="nq-game-info"><b>Arcade Jaringan</b><small>Subnet Sprint, OSI Challenge, Rute Paket, dan lainnya.</small><span class="nq-game-meta"><em>ARCADE</em><strong>MAIN ↗</strong></span></span>
+</button>
+<button class="nq-game-card nq-game-crimp" data-gamepanel="crimp" data-v="game" type="button">
+<span class="nq-game-art"><span class="nq-art-cable">〰</span><span class="nq-art-chip">T568B</span></span>
+<span class="nq-game-info"><b>Crimping Challenge</b><small>Susun warna kabel UTP sesuai urutan standar T568B.</small><span class="nq-game-meta"><em>HARDWARE</em><strong>MAIN ↗</strong></span></span>
+</button>
+<button class="nq-game-card nq-game-learn" data-gamepanel="learn" data-v="game" type="button">
+<span class="nq-game-art"><span class="nq-art-book">▤</span><span class="nq-art-chip">LEARN</span></span>
+<span class="nq-game-info"><b>Learning Quest</b><small>Pelajari Cisco, MikroTik, dan Linux Ubuntu melalui tantangan.</small><span class="nq-game-meta"><em>KNOWLEDGE</em><strong>BUKA ↗</strong></span></span>
+</button>
+<button class="nq-game-card nq-game-vlan" data-v="vlan" type="button">
+<span class="nq-game-art"><span class="nq-art-vlan">VLAN</span><span class="nq-art-chip">NETWORK</span></span>
+<span class="nq-game-info"><b>VLAN Arena</b><small>Segmentasikan jaringan dan uji komunikasi antarperangkat.</small><span class="nq-game-meta"><em>SWITCHING</em><strong>BUKA ↗</strong></span></span>
+</button>
+</div>
+</section>
+<aside class="nq-side-stack">
+<section class="nq-panel nq-daily-panel">
+<div class="nq-panel-heading compact"><div><div class="nq-kicker">FEATURED OBJECTIVE</div><h2>Misi Unggulan</h2></div><span class="nq-mission-badge">QUEST</span></div>
+<div class="nq-mission-visual"><span class="nq-mission-emblem">⚑</span><div><small>NETWORK STORY</small><b>Insiden Jaringan Sekolah</b><p>Selesaikan misi cerita, periksa perangkat, lalu verifikasi koneksi jaringan.</p></div></div>
+<div class="nq-mission-steps"><span><i></i> Bangun topologi</span><span><i></i> Konfigurasi VLAN</span><span><i></i> Uji konektivitas</span></div>
+<div class="nq-mission-reward"><span>REWARD</span><b>XP + SKILL POINT</b></div>
+<button class="nq-primary-btn full" data-v="story" type="button">MULAI MISSION <b>→</b></button>
+</section>
+<section class="nq-panel nq-quick-panel">
+<div class="nq-panel-heading compact"><div><div class="nq-kicker">QUICK DEPLOY</div><h2>Akses Cepat</h2></div></div>
+<div class="nq-quick-grid">
+<button data-v="lab" type="button"><span>⌘</span><b>Virtual Lab</b></button>
+<button data-v="ip" type="button"><span>#</span><b>Subnetting</b></button>
+<button data-v="fix" type="button"><span>⚒</span><b>Diagnosa</b></button>
+<button data-v="quiz" type="button"><span>✎</span><b>Kuis</b></button>
+</div>
+</section>
+</aside>
+</div>
+<div class="nq-lower-grid">
+<section class="nq-panel nq-progression-panel">
+<div class="nq-panel-heading compact"><div><div class="nq-kicker">CAREER PROGRESSION</div><h2>Skill Progress</h2><p>Jalur kemampuan teknisi jaringan.</p></div><button class="nq-text-btn" data-v="skills" type="button">SKILL TREE →</button></div>
+<div class="nq-skill-list">
+<div class="nq-skill-row"><span class="nq-skill-icon">◈</span><div><b>Network Fundamentals</b><small>Dasar jaringan dan perangkat</small></div><span class="nq-skill-state unlocked">STARTER</span></div>
+<div class="nq-skill-row"><span class="nq-skill-icon blue">⌁</span><div><b>Switching &amp; VLAN</b><small>Segmentasi dan manajemen switch</small></div><span class="nq-skill-state">PRACTICE</span></div>
+<div class="nq-skill-row"><span class="nq-skill-icon purple">⇄</span><div><b>Routing &amp; Services</b><small>Gateway dan layanan jaringan</small></div><span class="nq-skill-state">LOCKED PATH</span></div>
+</div>
+</section>
+<section class="nq-panel nq-reward-panel">
+<div class="nq-panel-heading compact"><div><div class="nq-kicker">REWARD PREVIEW</div><h2>Achievement Vault</h2><p>Contoh lencana yang bisa dibuka lewat tantangan.</p></div><button class="nq-text-btn" data-v="leaderboard" type="button">KOLEKSI →</button></div>
+<div class="nq-badge-row"><div class="nq-badge-item"><span>⚡</span><b>Fast Learner</b><small>XP Hunter</small></div><div class="nq-badge-item"><span>⌘</span><b>Network Builder</b><small>Lab Explorer</small></div><div class="nq-badge-item"><span>🛡</span><b>Cyber Guard</b><small>Security Scout</small></div><div class="nq-badge-item locked"><span>♛</span><b>Network Master</b><small>Coming challenge</small></div></div>
+</section>
+</div>
+</div>
+</section>
+<section class="view" id="daily">
+<div class="section-kicker">DAILY OPS • XP • STREAK</div><h2>Daily Quest</h2><p>Jalankan misi kecil setiap hari. Beberapa tugas benar-benar mengajakmu melakukan simulasi atau menyelesaikan aktivitas di NEXORA.</p>
+<div class="quest-shell">
+<div class="quest-board"><div class="welcome-tag"><span class="live-dot"></span> QUEST HARI INI</div><h2 id="dailyTitle" style="font-size:30px;margin-top:8px">Network Operator Routine</h2><p style="max-width:52ch;margin-top:8px">Selesaikan aktivitas berikut untuk mendapatkan XP bonus. Progress tersimpan di browser perangkat ini.</p><div class="quest-meta"><span class="quest-chip" id="dailyDate">Hari ini</span><span class="quest-chip" id="dailyProgressText">0 / 3 selesai</span><span class="quest-chip" id="dailyXPText">+0 XP</span></div><div class="quest-progress"><span id="dailyBar"></span></div><div class="quest-list" id="dailyList"></div></div>
+<div class="quest-side"><div class="section-kicker">STREAK</div><div class="streak" id="dailyStreak">0</div><p>hari berturut-turut</p><div class="msg" style="margin-top:18px"><b>Tips:</b> Jangan hanya membaca. Masuk ke Virtual Lab, game, atau simulasi lalu selesaikan aktivitasnya.</div><div class="quest-note" id="dailyResetNote">Quest akan diperbarui pada hari berikutnya.</div></div>
+</div>
+</section>
+<section class="view" id="skills">
+<div class="section-kicker">PROGRESSION SYSTEM • UNLOCK</div><h2>Skill Tree</h2><p>XP yang kamu kumpulkan membuka jalur kemampuan baru. Setiap node punya fokus praktik yang berbeda.</p>
+<div class="skill-tree" id="skillTree"></div><div class="skill-detail" id="skillDetail">Pilih node untuk melihat fokus kemampuan.</div>
+</section>
+<section class="view" id="certificate">
+<div class="section-kicker">CERTIFICATE CENTER • PORTFOLIO</div><h2>Certificate Center</h2><p>Selesaikan jalur belajar untuk membuka sertifikat pencapaian NEXORA. Nama dan sekolah diambil dari profil lokalmu.</p>
+<div class="cert-wrap">
+<div class="glass cert-control"><div class="feature-icon">▣</div><h3>Progress sertifikasi</h3><p style="margin-top:7px">Target minimal <b>250 XP</b> untuk membuka sertifikat Junior Network Practitioner.</p><div class="quest-progress"><span id="certBar"></span></div><div class="stats"><div class="stat"><small>XP</small><b id="certXP">0 XP</b></div><div class="stat"><small>STATUS</small><b id="certStatus">Terkunci</b></div></div><div class="row"><button class="btn" data-v="skills">Lihat Skill Tree</button><button class="btn p" disabled="" id="printCertificate">🖨 Cetak Sertifikat</button></div><div class="msg" id="certFeedback">Kumpulkan XP dari praktik untuk membuka sertifikat.</div></div>
+<div id="certificatePrint"><div class="cert-card"><div class="cert-kicker">CERTIFICATE OF ACHIEVEMENT</div><h2>Junior Network Practitioner</h2><div class="cert-name" id="certName">Teknisi Jaringan</div><p>Dengan ini dinyatakan telah menyelesaikan jalur pembelajaran dasar jaringan komputer pada <b>NEXORA TJKT</b>, melalui materi, simulasi, tantangan, dan praktik interaktif.</p><div class="cert-seal">NQ</div><div class="cert-id" id="certId">NEXORA • CERTIFICATE</div></div></div>
+</div>
+</section>
+<section class="view" id="about">
+<div class="glass hero">
+<div><div class="eyebrow">Tentang proyek</div><h1>NEXORA <span class="grad">TJKT</span></h1>
+<p style="margin-top:14px;max-width:55ch">NEXORA TJKT adalah media pembelajaran interaktif yang dirancang untuk membantu siswa memahami dasar jaringan komputer lewat penjelasan, simulasi, kuis, dan permainan edukatif.</p>
+<div class="row"><button class="btn p" data-v="materials">Mulai belajar</button></div>
+</div>
+<div class="glass card"><div class="eyebrow">Fokus pembelajaran</div><div class="kpi grad">Learn • Try • Review</div><p style="margin-top:10px">Pelajari konsep, coba simulasi, lalu evaluasi pemahaman melalui kuis.</p></div>
+</div>
+<div class="grid g2">
+<div class="glass card"><div class="feature-icon">◎</div><h3>Tujuan</h3><p>Membuat pembelajaran TJKT lebih menarik, mudah dipahami, dan mendorong siswa aktif mencoba.</p></div>
+<div class="glass card"><div class="feature-icon">⌘</div><h3>Fitur Utama</h3><p>Simulasi VLAN, kalkulator subnet, diagnosis gangguan, kuis, arena game, dan sistem XP untuk motivasi belajar.</p></div>
+<div class="glass card"><div class="feature-icon">▤</div><h3>Sasaran Pengguna</h3><p>Siswa Teknik Jaringan Komputer dan Telekomunikasi yang ingin mengulang konsep dasar jaringan.</p></div>
+<div class="glass card"><div class="feature-icon">✦</div><h3>Pengembang</h3><p><strong>MUH SAFIETRAH TEGAR PRIADI</strong></p></div>
+</div>
+</section>
+<section class="view" id="materials">
+<div class="eyebrow">Pusat belajar</div><h2>Materi Dasar TJKT</h2><p>Pilih materi untuk membaca ringkasan dan lanjutkan dengan simulasi di NEXORA.</p>
+<div class="grid g2">
+<article class="glass card"><div class="lesson-row"><div class="lesson-num">01</div><div><h3>Dasar Jaringan Komputer</h3><p>Jaringan komputer menghubungkan dua atau lebih perangkat agar dapat bertukar data dan berbagi sumber daya.</p><div class="pills"><span class="pill">LAN</span><span class="pill">WAN</span><span class="pill">Perangkat jaringan</span></div></div></div></article>
+<article class="glass card"><div class="lesson-row"><div class="lesson-num">02</div><div><h3>IP Address &amp; Subnetting</h3><p>Alamat IP mengidentifikasi perangkat pada jaringan. Subnetting membagi jaringan menjadi beberapa jaringan yang lebih kecil.</p><div class="pills"><span class="pill">IPv4</span><span class="pill">Prefix</span><span class="pill">Subnet mask</span></div><button class="btn" data-v="ip" style="margin-top:14px">Buka simulasi subnet →</button></div></div></article>
+<article class="glass card"><div class="lesson-row"><div class="lesson-num">03</div><div><h3>VLAN &amp; Switching</h3><p>VLAN membagi satu jaringan switch menjadi beberapa broadcast domain secara logis. Komunikasi lintas VLAN membutuhkan routing Layer 3.</p><div class="pills"><span class="pill">VLAN 10</span><span class="pill">VLAN 20</span><span class="pill">VLAN 30</span></div><button class="btn" data-v="vlan" style="margin-top:14px">Coba simulasi VLAN →</button></div></div></article>
+<article class="glass card"><div class="lesson-row"><div class="lesson-num">04</div><div><h3>Troubleshooting</h3><p>Periksa gejala, kumpulkan bukti, uji dugaan, lakukan perbaikan, lalu verifikasi hasilnya.</p><div class="pills"><span class="pill">Kabel</span><span class="pill">IP</span><span class="pill">Ping</span><span class="pill">DNS</span></div><button class="btn" data-v="fix" style="margin-top:14px">Latihan diagnosis →</button></div></div></article>
+<article class="glass card"><div class="lesson-row"><div class="lesson-num">05</div><div><h3>Port &amp; Layanan Jaringan</h3><p>Port membantu sistem mengarahkan komunikasi ke layanan yang sesuai. Contoh: HTTP 80, HTTPS 443, SSH 22, dan DNS 53.</p><button class="btn" data-v="game" style="margin-top:14px">Latihan kartu port →</button></div></div></article>
+<article class="glass card"><div class="lesson-row"><div class="lesson-num">06</div><div><h3>Evaluasi Pemahaman</h3><p>Uji pemahaman dasar jaringan melalui enam soal pilihan ganda dan dapatkan XP.</p><button class="btn p" data-v="quiz" style="margin-top:14px">Mulai kuis →</button></div></div></article>
+</div>
+<section class="glass card materials-extension">
+<div class="section-kicker">CORE NETWORK KNOWLEDGE</div><h3>Model OSI: 7 Lapisan</h3>
+<p>Gunakan tabel ini untuk menghubungkan konsep teori dengan perangkat, protokol, dan proses troubleshooting.</p>
+<div class="osi-table-wrap"><table class="osi-table"><thead><tr><th>Layer</th><th>Nama</th><th>Fungsi utama</th><th>Contoh</th></tr></thead><tbody>
+<tr><td>7</td><td>Application</td><td>Layanan jaringan yang dipakai aplikasi pengguna.</td><td>HTTP, DNS, SMTP</td></tr>
+<tr><td>6</td><td>Presentation</td><td>Format data, encoding, kompresi, dan enkripsi.</td><td>TLS, format data</td></tr>
+<tr><td>5</td><td>Session</td><td>Mengelola pembentukan, pemeliharaan, dan penutupan sesi.</td><td>Manajemen sesi</td></tr>
+<tr><td>4</td><td>Transport</td><td>Komunikasi end-to-end dan pengiriman data antaraplikasi.</td><td>TCP, UDP</td></tr>
+<tr><td>3</td><td>Network</td><td>Pengalamatan logis dan pemilihan rute paket.</td><td>IPv4, router</td></tr>
+<tr><td>2</td><td>Data Link</td><td>Frame, alamat MAC, dan komunikasi pada satu link lokal.</td><td>Ethernet, switch</td></tr>
+<tr><td>1</td><td>Physical</td><td>Pengiriman bit melalui media fisik atau sinyal radio.</td><td>Kabel UTP, fiber, radio</td></tr>
+</tbody></table></div>
+<div class="grid g2 materials-mini-grid">
+<article class="materials-mini"><b>Model TCP/IP</b><p>Application, Transport, Internet, dan Network Access. Model ini sering dipakai untuk menjelaskan protokol internet sehari-hari.</p></article>
+<article class="materials-mini"><b>Alur troubleshooting</b><p>Identifikasi gejala → kumpulkan bukti → susun hipotesis → uji satu perubahan → verifikasi → catat hasil.</p></article>
+</div>
+</section>
+<section class="glass card glossary-card">
+<div class="section-kicker">QUICK REFERENCE</div><h3>Kamus Istilah Jaringan</h3><p>Cari istilah untuk melihat penjelasan singkatnya.</p>
+<div class="field"><label for="glossarySearch">Cari istilah</label><input autocomplete="off" id="glossarySearch" placeholder="Contoh: gateway, DNS, VLAN..." type="search"/></div>
+<div class="glossary-list" id="glossaryList">
+<article class="glossary-item" data-term="gateway"><b>Default Gateway</b><p>Alamat perangkat router yang menjadi jalur keluar host menuju jaringan lain.</p></article>
+<article class="glossary-item" data-term="dns"><b>DNS</b><p>Layanan yang menerjemahkan nama domain menjadi alamat IP.</p></article>
+<article class="glossary-item" data-term="dhcp"><b>DHCP</b><p>Protokol yang membagikan konfigurasi IP secara otomatis kepada klien.</p></article>
+<article class="glossary-item" data-term="vlan"><b>VLAN</b><p>Segmentasi jaringan Layer 2 menjadi beberapa broadcast domain secara logis.</p></article>
+<article class="glossary-item" data-term="nat"><b>NAT</b><p>Teknik menerjemahkan alamat IP, misalnya alamat privat ke alamat publik.</p></article>
+<article class="glossary-item" data-term="arp"><b>ARP</b><p>Protokol IPv4 untuk mencari alamat MAC berdasarkan alamat IP pada jaringan lokal.</p></article>
+<article class="glossary-item" data-term="trunk"><b>Trunk</b><p>Link switch yang membawa trafik dari beberapa VLAN menggunakan penandaan VLAN.</p></article>
+<article class="glossary-item" data-term="cidr"><b>CIDR</b><p>Notasi prefix seperti /24 untuk menunjukkan panjang bagian network pada alamat IP.</p></article>
+</div>
+<p class="msg" hidden="" id="glossaryEmpty">Istilah tidak ditemukan. Coba kata kunci lain.</p>
+</section>
+</section>
+<section class="view" id="contact">
+<div class="eyebrow">Informasi proyek</div><h2>Kontak &amp; Informasi</h2><p>Halaman informasi untuk mengenal pembuat dan menyampaikan masukan terkait media pembelajaran.</p>
+<div class="grid g2">
+<div class="glass card"><div class="feature-icon">✉</div><h3>Masukan pembelajaran</h3><p>Jika menemukan materi yang perlu diperbaiki, catat topik dan bagian yang dimaksud lalu gunakan menu kontak untuk menyampaikan masukan.</p></div>
+<div class="glass card"><div class="feature-icon">⌂</div><h3>Informasi pembelajaran</h3><p><b>Platform:</b> NEXORA TJKT</p><p><b>Bidang:</b> Teknik Jaringan Komputer dan Telekomunikasi</p><p><b>Fokus:</b> Materi, simulasi, praktik, dan evaluasi jaringan</p></div>
+</div>
+</section>
+<section class="view" id="login">
+<div class="login-wrap glass card">
+<div class="login-brand">NEXORA TJKT</div><h2 style="margin-top:8px">Selamat datang kembali</h2><p>Siswa memasukkan nama. Guru dan Admin cukup memasukkan password.</p>
+<form id="loginForm">
+<div class="field"><label for="loginName">Nama pengguna</label><input autocomplete="username" id="loginName" maxlength="50" placeholder="Masukkan nama pengguna" required=""/></div>
+<div class="field"><label>Pilih peran</label><div class="role-picker">
+<div class="role-option"><input checked="" id="loginRoleStudent" name="loginRole" type="radio" value="student"/><label for="loginRoleStudent"><span class="role-icon">🎓</span>Siswa<small>Progress sendiri</small></label></div>
+<div class="role-option"><input id="loginRoleTeacher" name="loginRole" type="radio" value="teacher"/><label for="loginRoleTeacher"><span class="role-icon">👨‍🏫</span>Guru<small>Pantau siswa</small></label></div>
+<div class="role-option"><input id="loginRoleAdmin" name="loginRole" type="radio" value="admin"/><label for="loginRoleAdmin"><span class="role-icon">⚙️</span>Admin<small>Kelola NEXORA</small></label></div>
+</div></div>
+<div class="field" id="loginPassBox" style="display:none"><label for="loginPassword">Password</label><input autocapitalize="off" autocomplete="current-password" autocorrect="off" id="loginPassword" placeholder="Masukkan password" spellcheck="false" type="password"/></div>
+<div class="row"><button class="btn p" type="submit">Masuk ke NEXORA →</button><button class="btn" data-v="home" type="button">Kembali</button></div>
+<div class="form-error" id="loginError" role="status"></div>
+</form>
+<div class="login-note"><b>Mode demonstrasi sekolah</b><br/>Akun dan progress disimpan di browser ini. Untuk penggunaan sekolah lintas perangkat, hubungkan NEXORA ke database/authentication online.</div>
+</div>
+</section>
+<section class="view" id="game">
+<div class="section-kicker">PLAY • LEARN • PRACTICE</div><h2>Arena Game TJKT</h2><p>Pilih mode permainan: belajar materi, latihan crimping, tantangan jaringan, simulasi topologi, atau CyberShield Security Lab.</p>
+<div class="gamehub">
+<button class="gamecard" data-gamepanel="learn"><span class="bigic">📚</span><h3>Game Belajar TJKT</h3><p>Pelajari Cisco, konfigurasi dasar MikroTik, dan perintah Linux Ubuntu lalu jawab kuis.</p></button>
+<button class="gamecard" data-gamepanel="crimp"><span class="bigic">🔌</span><h3>Game Crimping Kabel</h3><p>Susun warna kabel UTP standar T568B sesuai urutan pin 1 sampai 8.</p></button>
+<button class="gamecard" data-gamepanel="classic"><span class="bigic">🎮</span><h3>Game Jaringan Lainnya</h3><p>Subnet Sprint, OSI Challenge, Detektif Jaringan, dan simulasi paket.</p></button>
+<button class="gamecard cyber-gamecard" data-gamepanel="cyber"><span class="bigic">🛡️</span><h3>CyberShield Security Lab</h3><p>Latihan mengenali indikator tautan mencurigakan dan memeriksa berkas secara edukatif.</p><span class="cyber-game-reward">BONUS +25 XP · PEMINDAIAN PERTAMA</span></button>
+<button class="gamecard simnetwork-gamecard" data-gamepanel="simnetwork"><span class="bigic">🖧</span><h3>Simulasi Jaringan Interaktif</h3><p>Praktik seperti teknisi: pasang perangkat, pilih port Ethernet, atur IPv4/VLAN, jalankan CLI, dan uji konektivitas melalui 15 misi.</p><span class="simnetwork-game-reward">15 MISI · BONUS +60 XP</span></button>
+<button class="gamecard tjktquest-gamecard" data-gamepanel="tjktquest" type="button"><span class="bigic">⚡</span><h3>TJKT Quest — K3, 5R &amp; Jaringan</h3><p>Game tantangan 30 soal dengan timer, 3 nyawa, pembahasan jawaban, rekor, dan evaluasi hasil.</p><span class="simnetwork-game-reward">30 SOAL · BONUS +20 XP</span></button>
+</div>
+<div class="gamepanel" id="panel-learn">
+<div class="glass card"><div class="section-kicker">LEARNING QUEST</div><h2>Belajar Materi TJKT</h2><p>Pilih materi untuk membaca ringkasan, kemudian kerjakan kuis singkat.</p>
+<div class="lesson-tabs"><button class="btn active" data-topic="cisco">Cisco</button><button class="btn" data-topic="mikrotik">MikroTik</button><button class="btn" data-topic="linux">Linux Ubuntu</button></div>
+<div class="lesson-content" id="lessonContent"></div>
+<div class="row"><button class="btn p" id="startTopicQuiz">Mulai kuis materi ini →</button></div>
+<div class="lesson-content" hidden="" id="topicQuiz"></div>
+</div>
+</div>
+<div class="gamepanel" id="panel-crimp">
+<div class="glass card"><div class="section-kicker">CABLING CHALLENGE</div><h2>Simulasi Crimping UTP</h2><p>Tekan warna kabel sesuai urutan standar T568B. Ini simulasi urutan warna untuk latihan teori, bukan pengganti praktik dengan alat dan pengawasan guru.</p>
+<div class="stats"><div class="stat"><small>PIN SELANJUTNYA</small><b id="crimpPin">1 / 8</b></div><div class="stat"><small>SKOR</small><b id="crimpScore">0</b></div></div>
+<div class="crimp-board" id="crimpChoices"></div><h3>Urutan pin yang kamu susun</h3><div class="crimp-board" id="crimpSlots"></div><div class="msg" id="crimpFeedback">Pilih warna pertama untuk memulai.</div>
+<div class="row"><button class="btn" id="crimpReset">Ulangi dari awal</button></div>
+</div>
+</div>
+<div class="gamepanel active" id="panel-classic">
+<div class="gtabs"><button class="btn p" data-g="g-cable">🔌 Susun Kabel</button><button class="btn" data-g="g-mem">🃏 Kartu Port</button><button class="btn" data-g="g-sp">⚡ Subnet Sprint</button><button class="btn" data-g="g-osi">🧠 OSI Challenge</button><button class="btn" data-g="g-detect">🕵️ Detektif Jaringan</button><button class="btn" data-g="g-route">📦 Rute Paket</button></div>
+<div class="gp on" id="g-cable"><div class="glass card"><div class="gh"><h3>Susun kabel UTP T568B</h3><span class="chip" id="ctime">0.0 s</span></div><p>Ketuk kabel sesuai urutan pin 1 sampai 8. Waktu mulai berjalan saat ketukan pertama.</p><div class="slots" id="cslots"></div><div class="pool" id="cpool"></div><div class="msg" id="cmsg"></div><div class="row"><button class="btn" id="cre">Acak ulang</button></div></div></div>
+<div class="gp" id="g-mem"><div class="glass card"><div class="gh"><h3>Kartu pasangan port</h3><span class="chip" id="mmv">0 langkah</span></div><p>Balik dua kartu untuk mencocokkan nomor port dengan nama layanannya.</p><div class="mgrid" id="mgrid"></div><div class="msg" id="mmsg"></div><div class="row"><button class="btn" id="mre">Kocok ulang</button></div></div></div>
+<div class="gp" id="g-sp"><div class="glass card"><div class="gh"><h3>Subnet Sprint</h3><span class="chip">Skor <b id="ssc">0</b></span></div><p>Jawab sebanyak mungkin dalam 30 detik. Capai 5 jawaban benar untuk mendapat XP.</p><div class="bar" style="margin-top:14px"><span id="sbar" style="width:100%"></span></div><div id="sq"><div class="msg">Tekan Mulai untuk memulai ronde.</div></div><div class="row"><button class="btn p" id="sgo">Mulai</button></div></div></div>
+<div class="gp" id="g-osi"><div class="glass card"><div class="gh"><h3>OSI Challenge</h3><span class="chip">Soal <b id="osinum">1</b>/6</span></div><p>Pilih layer OSI yang paling tepat untuk setiap situasi. Jawaban benar menambah skor.</p><div class="bar"><span id="osibar" style="width:0%"></span></div><div id="osibox"></div><div class="row"><button class="btn" id="osirestart">Ulangi tantangan</button></div></div></div>
+<div class="gp" id="g-detect"><div class="glass card"><div class="gh"><h3>Detektif Jaringan</h3><span class="chip">Kasus <b id="detnum">1</b>/5</span></div><p>Baca gejala, lalu pilih pemeriksaan atau solusi yang paling masuk akal.</p><div id="detbox"></div><div class="row"><button class="btn" id="detrestart">Kasus baru dari awal</button></div></div></div>
+<div class="gp" id="g-route"><div class="glass card"><div class="gh"><h3>Rute Paket</h3><span class="chip">Langkah <b id="rstep">0</b>/3</span></div><p>Bantu paket dari PC menuju server. Pilih perangkat jaringan secara berurutan.</p><div class="grid g3" style="margin:18px 0"><div class="glass card" style="text-align:center"><div style="font-size:30px">💻</div><b>PC Siswa</b></div><div class="glass card" style="text-align:center"><div style="font-size:30px">🔀</div><b>Switch</b></div><div class="glass card" style="text-align:center"><div style="font-size:30px">🖥️</div><b>Server</b></div></div><div id="routebox"></div><div class="row"><button class="btn" id="routerestart">Reset rute</button></div></div></div>
+</div>
+<div class="gamepanel" id="panel-cyber">
+<div class="glass card cyber-panel-card">
+<div class="cyber-panel-heading">
+<div><div class="section-kicker">CYBER SECURITY QUEST</div><h2>CyberShield Security Lab</h2><p>Analisis indikator keamanan digital lewat latihan URL dan pemeriksaan dasar berkas.</p></div>
+<span class="cyber-level">BONUS QUEST</span>
+</div>
+<div class="cyber-learning-note"><b>Tujuan belajar:</b> mengenali tanda tautan mencurigakan, memahami risiko domain, serta mengetahui keterbatasan pemeriksaan file berbasis metadata.</div>
+<div aria-live="polite" class="cyber-reward-status" id="cyberQuestReward">Selesaikan pemindaian pertama untuk memperoleh 25 XP. XP hanya diberikan satu kali per akun.</div>
+<div class="cyber-frame-shell"><iframe id="cyberShieldFrame" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-forms allow-downloads allow-modals" title="CyberShield Security Lab"></iframe></div>
+<div class="row"><button class="btn" data-gamepanel="classic" type="button">← Kembali ke Game Jaringan</button></div>
+</div>
+</div>
+<div class="gamepanel" id="panel-simnetwork">
+<div class="glass card simnetwork-panel-card">
+<div class="simnetwork-panel-heading">
+<div><div class="section-kicker">NETWORK TOPOLOGY QUEST</div><h2>Simulasi Jaringan Interaktif</h2><p>Praktik seperti teknisi jaringan: pasang perangkat, pilih port, crimp koneksi virtual, atur IPv4/VLAN, jalankan perintah CLI, lalu verifikasi ping.</p></div>
+<span class="simnetwork-level">15 MISI · 60 XP</span>
+</div>
+<div class="simnetwork-learning-note"><b>Mode praktik lapangan:</b> bangun topologi fisik, sambungkan port Ethernet yang tersedia, atur alamat IP dan subnet mask, tetapkan VLAN access, konfigurasi interface router, lalu uji konektivitas melalui ping dan CLI. Status koneksi mengikuti konfigurasi yang kamu buat.</div>
+<div aria-live="polite" class="simnetwork-reward-status" id="simNetworkReward">Selesaikan seluruh 15 misi tanpa melewati misi untuk memperoleh bonus +60 XP satu kali per akun NEXORA.</div>
+<div class="simnetwork-frame-shell"><iframe id="simNetworkFrame" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-forms" title="Simulasi Jaringan Interaktif"></iframe></div>
+<div class="row"><button class="btn" data-gamepanel="classic" type="button">← Kembali ke Game Jaringan</button></div>
+</div>
+</div>
+<div class="gamepanel" id="panel-tjktquest">
+<div class="glass card tjktquest-panel-card">
+<div class="tjkt-embed-head">
+<div><div class="section-kicker">K3 • 5R • NETWORKING</div><h2>TJKT Quest — Learning Challenge</h2><p>Game pembelajaran 30 soal yang sekarang terintegrasi langsung ke menu Game NEXORA.</p></div>
+<span class="tjkt-embed-tag">30 QUESTIONS · 3 CATEGORIES</span>
+</div>
+<div class="tjkt-embed-note"><b>Misi:</b> selesaikan seluruh soal dalam satu sesi untuk memperoleh bonus <b>+20 XP</b> satu kali per akun NEXORA. Nama pemain akan mengikuti akun NEXORA yang sedang masuk. Rekor game tetap disimpan pada browser yang sama.</div>
+<div aria-live="polite" class="simnetwork-reward-status" id="tjktQuestRewardStatus">Bonus +20 XP tersedia setelah menyelesaikan seluruh soal tanpa kehabisan nyawa.</div>
+<iframe id="tjktQuestFrame" referrerpolicy="no-referrer" title="TJKT Quest — K3, Budaya Kerja 5R, dan Praktik Jaringan"></iframe>
+<div class="tjkt-embed-footer"><span>Game berjalan di dalam NEXORA. Progres dan rekor tersimpan secara lokal di browser.</span><button class="btn" data-gamepanel="classic" type="button">← Kembali ke menu Game</button></div>
+</div>
+</div>
+</section>
+<section class="view" id="profile">
+<div class="section-kicker">LEARNER IDENTITY</div><h2>Profil Peserta</h2><p>Atur identitas belajar dan pantau perkembanganmu di NEXORA.</p>
+<div class="glass card" style="margin-top:16px"><div class="profile-head"><div class="avatar" id="profileAvatar">N</div><div><h2 id="profileDisplayName" style="font-size:26px">Teknisi Jaringan</h2><p id="profileSchoolDisplay">Asal sekolah belum diisi</p><span class="pill" id="profileRank">Newbie</span></div></div>
+<div class="profile-grid"><div class="stat"><small>TOTAL XP</small><b id="profileXP">0 XP</b></div><div class="stat"><small>RANK</small><b id="profileRankStat">Newbie</b></div><div class="stat"><small>MISI SELESAI</small><b id="profileMissionCount">0 / 4</b></div></div>
+<div class="grid g2" style="margin-top:20px"><div class="field"><label for="profileName">Nama peserta</label><input id="profileName" maxlength="50" placeholder="Masukkan nama"/></div><div class="field"><label for="profileSchool">Asal sekolah</label><input id="profileSchool" maxlength="80" placeholder="Contoh: SMK Negeri ..."/></div></div>
+<div class="row"><button class="btn p" id="saveProfile">Simpan profil</button><button class="btn" data-v="game">Kembali ke game</button></div><div aria-live="polite" class="msg" id="profileFeedback">Profil tersimpan hanya di browser perangkat ini.</div></div>
+</section>
+<section class="view" id="vlan">
+<div class="section-kicker">SWITCHING WORKSHOP • VLAN SEGMENTATION</div>
+<h2>Misi 1: Atur VLAN</h2><p>Ubah VLAN perangkat melalui labelnya. Pilih mode pemilihan pengirim atau tujuan, lalu ketuk perangkat pada topologi untuk menentukan alur paket.</p>
+<div class="grid g2">
+<div class="glass card">
+<div aria-label="Mode pemilihan perangkat" class="vlan-pick-bar">
+<button aria-pressed="true" class="btn p" id="vlanPickSource" type="button">① Pilih pengirim</button>
+<button aria-pressed="false" class="btn" id="vlanPickTarget" type="button">② Pilih tujuan</button>
+</div>
+<div class="msg" id="vlanSelectionStatus" role="status">Mode aktif: pilih perangkat pengirim.</div>
+<div class="stage" id="stage"><div class="hosts" id="hosts"></div><div class="sw" id="sw"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="pkt" id="pkt"></div></div>
+<div class="vlan-endpoints"><div><small>PENGIRIM</small><b id="vlanSourceName">Belum dipilih</b></div><div><small>TUJUAN</small><b id="vlanTargetName">Belum dipilih</b></div></div>
+<div class="row vlan-router-row" style="align-items:center"><span>Inter-VLAN Routing / Router Layer 3</span><button aria-label="Aktifkan inter-VLAN routing" aria-pressed="false" class="sw2" id="l3" type="button"></button><b id="l3Status">Mati</b></div>
+<div class="row"><button class="btn p" id="send" type="button">Kirim paket</button><button class="btn" id="vlanReset" type="button">Reset simulasi</button></div>
+<div class="msg" id="vmsg" role="status">Pilih pengirim dan tujuan melalui tombol mode di atas.</div>
+</div>
+<div class="glass card"><h3>Konsep dan aturan simulasi</h3><p>VLAN membagi satu switch menjadi beberapa broadcast domain. Perangkat pada VLAN yang sama dapat berkomunikasi langsung. Perangkat lintas VLAN memerlukan perangkat Layer 3 dengan inter-VLAN routing.</p><div class="pills"><span class="tag v10">VLAN 10 Guru</span><span class="tag v20">VLAN 20 Siswa</span><span class="tag v30">VLAN 30 Server</span></div><div class="msg"><b>Latihan:</b> pilih PC Siswa sebagai pengirim dan Server sebagai tujuan. Kirim paket saat routing mati, aktifkan routing, lalu kirim ulang.</div><div class="vlan-rule-list"><div><b>Access port</b><span>Port ke PC/server membawa satu VLAN.</span></div><div><b>Broadcast domain</b><span>Broadcast VLAN 10 tidak otomatis masuk ke VLAN 20.</span></div><div><b>Inter-VLAN routing</b><span>Router atau switch Layer 3 meneruskan trafik antarjaringan.</span></div></div></div>
+</div>
+</section>
+<section class="view" id="ip">
+<h2>Misi 2: Bagi subnet</h2><p>Geser prefix dan lihat bit jaringan (terang) dan bit host (redup) berubah.</p>
+<div class="grid g2">
+<div class="glass card">
+<div class="field"><label for="ipin">Alamat IPv4</label><input id="ipin" value="192.168.10.25"/></div>
+<div class="field"><label for="pre">Prefix: <b id="prel">/24</b></label><input id="pre" max="30" min="8" type="range" value="24"/></div>
+<div class="bits" id="bits"></div>
+<div class="stats" id="stats"></div>
+</div>
+<div class="glass card"><h3>Tantangan kapasitas</h3><p>Lab TJKT butuh 50 host dalam satu subnet. Prefix terbesar (subnet terkecil) yang masih cukup adalah?</p>
+<div class="field"><label for="ans">Jawabanmu (angka prefix)</label><input id="ans" placeholder="contoh: 24" type="number"/></div>
+<div class="row"><button class="btn p" id="chk">Periksa</button></div><div id="imsg"></div>
+<p style="margin-top:14px;font-size:13px">Rumus: host usable = 2<sup>(32 − prefix)</sup> − 2. Dua alamat dipakai untuk network dan broadcast.</p></div>
+</div>
+<section aria-labelledby="subnetWorkbenchTitle" class="glass card subnet-workbench">
+<div class="section-kicker">NETWORK PLANNING TOOL</div><h3 id="subnetWorkbenchTitle">Kalkulator Subnet IPv4</h3>
+<p>Hitung network ID, broadcast, subnet mask, rentang host, dan prefix berdasarkan kebutuhan jumlah perangkat.</p>
+<div class="subnet-tool-grid">
+<div>
+<div class="field"><label for="subnetCalcAddress">Alamat IPv4</label><input autocomplete="off" id="subnetCalcAddress" inputmode="decimal" spellcheck="false" value="192.168.10.25"/></div>
+<div class="field"><label for="subnetCalcPrefix">Prefix CIDR</label><input id="subnetCalcPrefix" inputmode="numeric" max="32" min="0" type="number" value="24"/></div>
+<div class="field"><label for="subnetHostNeed">Kebutuhan host</label><input id="subnetHostNeed" inputmode="numeric" max="4294967294" min="1" type="number" value="50"/></div>
+<div class="row"><button class="btn p" id="subnetCalculate" type="button">Hitung subnet</button><button class="btn" id="subnetCopy" type="button">Salin hasil</button></div>
+<div aria-live="polite" class="msg" id="subnetCalcFeedback" role="status">Masukkan alamat, prefix, dan jumlah host untuk mulai menghitung.</div>
+</div>
+<div>
+<div aria-live="polite" class="subnet-result-grid" id="subnetCalcResults"><div class="stat"><small>NETWORK ID</small><b>192.168.10.0</b></div><div class="stat"><small>BROADCAST</small><b>192.168.10.255</b></div><div class="stat"><small>SUBNET MASK</small><b>255.255.255.0</b></div><div class="stat"><small>HOST USABLE</small><b>254</b></div></div>
+<div class="subnet-recommendation" id="subnetRecommendation">Rekomendasi untuk 50 host: <b>/26</b> dengan 62 host usable.</div>
+</div>
+</div>
+<p class="subnet-footnote">Catatan: kalkulator memakai aturan subnet IPv4 umum untuk LAN. Prefix /31 ditampilkan sebagai jaringan point-to-point dan /32 sebagai satu alamat host.</p>
+</section>
+</section>
+<section class="view" id="fix">
+<h2>Misi 3: Diagnosa gangguan</h2><p>Jalankan pemeriksaan untuk mengumpulkan bukti, lalu pilih akar masalah.</p>
+<div class="grid g2">
+<div class="glass card"><div class="field"><label for="tk">Tiket gangguan</label><select id="tk"></select></div><div class="msg" id="brief"></div><h3 style="margin-top:16px">Pilih akar masalah</h3><div class="opts" id="dx"></div><div id="dmsg"></div></div>
+<div class="glass card"><h3>Alat uji</h3><div class="pills"><button class="btn" data-p="0">Cek kabel</button><button class="btn" data-p="1">Cek IP</button><button class="btn" data-p="2">Ping</button><button class="btn" data-p="3">Cek DNS</button></div><div class="term big cur" id="out">$ pilih alat uji...</div></div>
+</div>
+</section>
+<section class="view" id="quiz">
+<h2>Misi 4: Kuis kilat</h2><p>Satu soal per layar. Jawaban benar berturut-turut memberi bonus.</p>
+<div class="glass card" style="margin-top:18px"><div style="display:flex;justify-content:space-between;font-size:13px"><span id="qn">Soal 1 dari 20</span><span id="qs">Streak 0</span></div><div class="bar"><span id="qb" style="width:0"></span></div><div id="qbox"></div></div>
+</section>
+<section class="view" id="story">
+<div class="section-kicker">SIMULASI KASUS • PRAKTIK JARINGAN</div><h2>Story Mode: Teknisi Jaringan</h2><p>Empat insiden jaringan di lingkungan sekolah. Baca gejala, pilih langkah terbaik, dan pelajari alasan teknis di balik keputusanmu.</p>
+<div class="story-layout">
+<div class="mission-map" id="missionMap">
+<button class="mission-node active" data-mission="0"><span class="node-num">01</span><span><b>Lab kehilangan koneksi</b><small>Physical layer • Kabel &amp; link</small></span></button>
+<button class="mission-node" data-mission="1"><span class="node-num">02</span><span><b>IP bertabrakan</b><small>Addressing • DHCP</small></span></button>
+<button class="mission-node" data-mission="2"><span class="node-num">03</span><span><b>Internet tanpa nama</b><small>DNS • Name resolution</small></span></button>
+<button class="mission-node" data-mission="3"><span class="node-num">04</span><span><b>Jaringan beda subnet</b><small>Gateway • Routing</small></span></button>
+</div>
+<div aria-live="polite" class="glass card mission-play" id="missionPanel"></div>
+</div>
+</section>
+<section class="view" id="lab">
+<div class="section-kicker">Interactive topology • Simulation only</div><h2>Virtual Network Lab</h2><p>Pilih perangkat sumber dan tujuan, lalu jalankan uji paket. Ini simulasi pembelajaran, bukan akses ke jaringan sekolah yang sebenarnya.</p>
+<div class="grid g2" style="align-items:start">
+<div class="glass card"><div class="gh"><h3>Topologi jaringan</h3><span class="chip"><span class="live-dot"></span> SIMULATOR</span></div>
+<div class="lab-topology" id="labTopology">
+<svg aria-hidden="true" class="lab-lines" preserveaspectratio="none" viewbox="0 0 600 300"><path d="M95 75 L300 150 L95 225 M300 150 L505 75 M300 150 L505 225" fill="none" opacity=".6" stroke="#4dddf5" stroke-dasharray="7 7" stroke-width="2"></path><circle cx="300" cy="150" fill="#22e1ff" opacity=".035" r="45"></circle></svg>
+<button class="lab-node" data-node="pc1"><span class="lab-icon">▣</span><b>PC Siswa</b><small>192.168.10.10</small></button>
+<button class="lab-node" data-node="pc2"><span class="lab-icon">▣</span><b>PC Guru</b><small>192.168.10.20</small></button>
+<button class="lab-node active" data-node="switch"><span class="lab-icon">⌘</span><b>Switch</b><small>Layer 2</small></button>
+<button class="lab-node" data-node="router"><span class="lab-icon">◇</span><b>Router</b><small>Gateway .1</small></button>
+<button class="lab-node" data-node="server"><span class="lab-icon">▤</span><b>Server</b><small>192.168.20.10</small></button>
+</div>
+<div class="row"><button class="btn" id="labSource">Pilih sumber</button><button class="btn" id="labTarget">Pilih tujuan</button><button class="btn p" id="labSend">Jalankan ping →</button></div>
+<div class="lab-status" id="labStatus" role="status"><span class="live-dot"></span><span>Pilih perangkat sumber dan tujuan untuk memulai uji koneksi.</span></div>
+</div>
+<div class="glass card"><div class="section-kicker">Packet inspector</div><h3>Hasil pemeriksaan</h3><div class="term big" id="labTerminal">NEXORA NETWORK CONSOLE
+Status: idle
+Menunggu perintah ping...</div><div class="stats"><div class="stat"><small>Sumber</small><b id="labSourceValue">Belum dipilih</b></div><div class="stat"><small>Tujuan</small><b id="labTargetValue">Belum dipilih</b></div><div class="stat"><small>Hop simulasi</small><b id="labHops">—</b></div><div class="stat"><small>Latensi simulasi</small><b id="labLatency">—</b></div></div><div class="msg" style="margin-top:14px"><b>Catatan:</b> Hasil dibuat oleh aturan simulasi lokal untuk tujuan belajar. Tidak mengirim paket sungguhan.</div></div>
+</div>
+</section>
+<section class="view" data-role-view="teacher" id="teacher">
+<div class="section-kicker">TEACHER CONTROL ROOM</div><h2>Dashboard Guru</h2>
+<p>Guru dapat melihat progress siswa yang telah login pada browser/perangkat ini.</p>
+<div class="manager-grid"><div class="manager-card"><small>JUMLAH AKUN</small><strong id="teacherTotalStudents">0</strong></div><div class="manager-card"><small>XP TERTINGGI</small><strong id="teacherTopXP">0 XP</strong></div><div class="manager-card"><small>RATA-RATA XP</small><strong id="teacherAvgXP">0 XP</strong></div></div>
+<div class="glass card role-panel"><div class="panel-head"><div><div class="section-kicker">STUDENT MONITOR</div><h3>Progress seluruh siswa</h3></div><button class="btn" id="refreshTeacher">↻ Perbarui</button></div>
+<div style="overflow:auto"><table class="student-table"><thead><tr><th>Siswa</th><th>Rank</th><th>XP</th><th>Aktivitas</th><th>Aksi</th></tr></thead><tbody id="teacherStudentRows"></tbody></table></div>
+<div class="msg" id="teacherFeedback" style="margin-top:12px">Data diambil dari akun yang tersimpan pada browser ini.</div></div>
+<div class="glass card role-panel nexora-teacher-assignments">
+<div class="section-kicker">CLASSROOM MANAGEMENT</div><h3>Kelola Tugas Pembelajaran</h3>
+<p>Buat instruksi tugas untuk siswa. Data demo disimpan pada browser/perangkat ini, bukan tersinkron otomatis ke perangkat lain.</p>
+<form class="nexora-assignment-form" id="nexoraAssignmentForm">
+<label>Judul tugas<input id="nexoraAssignmentTitle" maxlength="90" placeholder="Contoh: Praktik konfigurasi IPv4" required=""/></label>
+<label>Materi / topik<select id="nexoraAssignmentTopic"><option>Dasar Jaringan</option><option>IP Address &amp; Subnetting</option><option>VLAN &amp; Switching</option><option>Routing</option><option>Linux &amp; Server</option><option>Troubleshooting</option><option>Keamanan Jaringan</option></select></label>
+<label>Instruksi tugas<textarea id="nexoraAssignmentDesc" maxlength="500" placeholder="Jelaskan langkah dan hasil yang harus dikumpulkan..." required="" rows="3"></textarea></label>
+<label>Tenggat (opsional)<input id="nexoraAssignmentDue" type="date"/></label>
+<button class="btn p" type="submit">＋ Terbitkan Tugas</button>
+</form>
+<div class="nexora-assignment-list" id="nexoraTeacherAssignmentList"><p class="msg">Belum ada tugas yang diterbitkan.</p></div>
+<p aria-live="polite" class="msg" id="nexoraAssignmentFeedback" role="status">Tugas tersimpan secara lokal di browser ini.</p>
+</div>
+</section>
+<section class="view" data-role-view="admin" id="admin">
+<div class="section-kicker">ADMIN CONTROL CENTER</div><h2>Admin Center</h2><p>Kelola akun demo, materi/quest yang tersedia, dan pencapaian NEXORA.</p>
+<div class="manager-grid"><div class="manager-card"><small>AKUN TERDAFTAR</small><strong id="adminTotalUsers">0</strong></div><div class="manager-card"><small>QUEST AKTIF</small><strong id="adminQuestCount">0</strong></div><div class="manager-card"><small>ACHIEVEMENT</small><strong id="adminAchievementCount">0</strong></div></div>
+<div class="grid g2 role-panel">
+<div class="glass card"><div class="section-kicker">ACCOUNT MANAGEMENT</div><h3>Kelola akun demo</h3><p>Admin dapat menghapus akun dari browser ini. Progress akun juga ikut dihapus.</p><div class="admin-list" id="adminUserList"></div></div>
+<div class="glass card"><div class="section-kicker">CONTENT MANAGEMENT</div><h3>Materi &amp; Quest</h3><div class="field"><label for="adminQuestTitle">Nama quest baru</label><input id="adminQuestTitle" placeholder="Contoh: Konfigurasi DHCP Server"/></div><div class="admin-actions"><button class="btn p" id="adminAddQuest">+ Tambah Quest</button><button class="btn" id="adminResetQuest">Reset Quest Demo</button></div><div class="admin-list" id="adminQuestList"></div></div>
+</div>
+<div class="glass card role-panel"><div class="section-kicker">ACHIEVEMENT MANAGEMENT</div><h3>Achievement NEXORA</h3><p>Achievement bawaan tetap berasal dari sistem XP NEXORA. Admin dapat melihat jumlah achievement yang tersedia dan mereset progress akun demo.</p><div class="admin-actions"><button class="btn" id="adminResetCurrent">Reset progress akun saat ini</button><button class="btn" id="adminRefresh">↻ Refresh Admin Center</button></div><div class="msg" id="adminFeedback" style="margin-top:12px">Admin Center aktif dalam mode lokal.</div></div>
+</section>
+<section class="view" id="leaderboard">
+<div class="section-kicker">REWARDS • PROGRESS • COMPETITION</div><h2>Achievement &amp; Ranking</h2><p>Kumpulkan XP dari materi, simulasi, kuis, dan misi. Buka lencana dan pantau posisi skor pada perangkat ini.</p>
+<div class="achievement-summary grid g3">
+<div class="stat"><small>XP TERKUMPUL</small><b id="achXP">0 XP</b><span class="muted">Total pengalaman</span></div>
+<div class="stat"><small>RANK SAAT INI</small><b id="achRank">Newbie</b><span class="muted" id="achNext">Menuju Teknisi Junior</span></div>
+<div class="stat"><small>LENCANA TERBUKA</small><b id="achCount">0 / 9</b><span class="muted">Terus selesaikan tantangan</span></div>
+</div>
+<div class="glass card" style="margin-top:16px">
+<div class="gh"><div><div class="section-kicker">BADGE COLLECTION</div><h3>Galeri pencapaian</h3></div><span class="chip" id="achievementPercent">0% terbuka</span></div>
+<div class="bar" style="margin:12px 0 18px"><span id="achievementBar" style="width:0%"></span></div>
+<div class="achievement-grid" id="achievementGrid"></div>
+</div>
+<div class="glass card" style="margin-top:16px">
+<div class="gh"><div><div class="section-kicker">TOP LEARNERS</div><h3>Ranking XP</h3></div><span class="chip">PERANGKAT INI</span></div>
+<div class="ranking-me" id="myRanking">Peringkatmu akan muncul setelah profil dan XP tersedia.</div>
+<div id="leaderboardList"></div>
+<div class="privacy-note">Ranking ini bersifat lokal: data hanya tersimpan di browser/perangkat yang digunakan. Ranking antarperangkat atau seluruh siswa membutuhkan database dan akun online.</div>
+</div>
+<div class="row" style="margin-top:16px"><button class="btn p" data-v="story">Lanjutkan misi →</button><button class="btn" data-v="game">Cari XP di arena game</button></div>
+</section>
+<section aria-labelledby="analyticsTitle" class="view" id="analytics">
+<div class="nq-dashboard-topline">
+<div><div class="nq-kicker">PLAYER INSIGHTS / SYSTEM CONTROL</div><h1 class="nq-greeting" id="analyticsTitle">Analitik <span class="grad">&amp; Pengaturan.</span></h1><p class="nq-subtitle">Pantau perkembangan belajar, periksa kondisi aplikasi, dan atur efek visual.</p></div>
+<span class="nq-status"><i></i> LOCAL PROFILE</span>
+</div>
+<div class="nq-analytics-grid" id="nqAnalyticsStats">
+<article class="nq-analytics-card"><small>TOTAL XP</small><strong id="nqaXP">0</strong><span>Pengalaman terkumpul</span></article>
+<article class="nq-analytics-card"><small>AKTIVITAS TERCATAT</small><strong id="nqaActivities">0</strong><span>Interaksi di perangkat ini</span></article>
+<article class="nq-analytics-card"><small>TANTANGAN SELESAI</small><strong id="nqaDone">0</strong><span>Aktivitas dengan reward</span></article>
+<article class="nq-analytics-card"><small>HALAMAN DIKUNJUNGI</small><strong id="nqaViews">0</strong><span>Menu yang pernah dibuka</span></article>
+</div>
+<div class="nq-analytics-columns">
+<section class="nq-analytics-panel"><div class="nq-analytics-head"><div><div class="nq-kicker">LEARNING ACTIVITY</div><h2>Aktivitas terbaru</h2></div><button class="btn" id="nqaClear" type="button">Hapus riwayat</button></div><div class="nq-activity-list" id="nqaActivityList"><p>Belum ada aktivitas tercatat.</p></div></section>
+<section class="nq-analytics-panel"><div class="nq-kicker">SYSTEM PREFERENCES</div><h2>Pengaturan tampilan</h2>
+<label class="nq-setting-row"><span><b>Animasi Blackhole</b><small>Menampilkan latar ruang angkasa bergerak.</small></span><input checked="" id="nqaMotion" type="checkbox"/></label>
+<label class="nq-setting-row"><span><b>Mode ringan</b><small>Mengurangi blur dan efek visual untuk perangkat lambat.</small></span><input id="nqaLite" type="checkbox"/></label>
+<div class="nq-setting-note">Pengaturan ini tersimpan di browser/perangkat ini.</div>
+<div class="nq-analytics-head" style="margin-top:24px"><div><div class="nq-kicker">SELF CHECK</div><h2>Pemeriksaan aplikasi</h2></div><button class="btn p" id="nqaDiagnostics" type="button">Jalankan tes</button></div>
+<div class="nq-diagnostic-result" id="nqaDiagnosticsResult" role="status">Belum ada pemeriksaan. Jalankan tes untuk memeriksa komponen dasar.</div>
+</section>
+</div>
+<section class="nq-analytics-panel nq-data-note"><b>Catatan penyimpanan:</b> progres dan analitik pada versi HTML ini disimpan secara lokal di browser. Ekspor backup secara berkala jika ingin memindahkan data ke perangkat lain. Sinkronisasi multi-perangkat memerlukan backend/server dan belum diaktifkan pada file mandiri ini.</section>
+</section>
+<section aria-labelledby="journalTitle" class="view" id="journal">
+<div class="section-kicker">PRACTICAL EVIDENCE • LEARNING PORTFOLIO</div><h2 id="journalTitle">Jurnal Praktik</h2>
+<p>Catat konfigurasi, gejala, langkah diagnosis, dan hasil praktik jaringan. Catatan tersimpan di browser pada perangkat ini dan dapat diekspor sebagai laporan.</p>
+<div class="journal-layout">
+<section class="glass card">
+<div class="section-kicker">NEW ENTRY</div><h3>Tambah catatan praktik</h3>
+<form id="journalForm">
+<div class="field"><label for="journalEntryTitle">Judul kegiatan</label><input id="journalEntryTitle" maxlength="90" placeholder="Contoh: Konfigurasi VLAN ruang lab" required=""/></div>
+<div class="field"><label for="journalEntryTopic">Topik</label><select id="journalEntryTopic"><option>Dasar Jaringan</option><option>IP Address &amp; Subnetting</option><option>VLAN &amp; Switching</option><option>Routing</option><option>Linux &amp; Server</option><option>Troubleshooting</option><option>Keamanan Jaringan</option><option>Perakitan Kabel</option></select></div>
+<div class="field"><label for="journalEntrySteps">Langkah dan konfigurasi</label><textarea id="journalEntrySteps" maxlength="4000" placeholder="Tuliskan perangkat, alamat IP, perintah, atau langkah yang dilakukan." required="" rows="4"></textarea></div>
+<div class="field"><label for="journalEntryResult">Hasil praktik</label><select id="journalEntryResult"><option value="Berhasil">Berhasil</option><option value="Perlu perbaikan">Perlu perbaikan</option><option value="Belum berhasil">Belum berhasil</option></select></div>
+<div class="field"><label for="journalEntryReflection">Kesimpulan / hal yang dipelajari</label><textarea id="journalEntryReflection" maxlength="2000" placeholder="Apa yang berhasil? Apa yang perlu diperbaiki?" rows="3"></textarea></div>
+<div class="row"><button class="btn p" type="submit">Simpan catatan</button><button class="btn" type="reset">Kosongkan form</button></div>
+<div aria-live="polite" class="msg" id="journalFeedback" role="status">Jangan masukkan password atau informasi akun ke dalam jurnal.</div>
+</form>
+</section>
+<section class="glass card">
+<div class="journal-list-head"><div><div class="section-kicker">MY PRACTICAL LOGS</div><h3>Riwayat praktik</h3><p id="journalCount">0 catatan tersimpan</p></div><div class="journal-actions"><button class="btn" id="journalExport" type="button">Ekspor .txt</button><button class="btn" id="journalClear" type="button">Hapus semua</button></div></div>
+<div class="field"><label for="journalSearch">Cari catatan</label><input id="journalSearch" placeholder="Cari judul, topik, atau isi catatan..." type="search"/></div>
+<div class="journal-entries" id="journalEntries"><div class="msg">Belum ada catatan. Simpan hasil praktik pertamamu menggunakan form.</div></div>
+</section>
+</div>
+<div class="msg journal-storage-note"><b>Penyimpanan lokal:</b> jurnal hanya tersedia pada browser/perangkat yang digunakan. Gunakan ekspor .txt sebagai salinan laporan atau backup.</div>
+</section>
+</main>
+<section class="view" id="capstone">
+<div class="nq-cap-head">
+<div><div class="eyebrow">CAPSTONE PROJECT · TJKT</div><h2>Proyek Akhir &amp; Rubrik Penilaian</h2>
+<p>Rancang jaringan sekolah, catat bukti praktik, lalu evaluasi kualitas media belajar NEXORA menggunakan lima aspek penilaian.</p></div>
+<span class="nq-cap-chip">5 ASPEK × 20 POIN</span>
+</div>
+<div class="nq-cap-grid">
+<article class="glass card">
+<div class="section-kicker">01 / RENCANA PROYEK</div><h3>Rancang jaringan laboratorium sekolah</h3>
+<p>Isi rancangan sederhana sebagai portofolio. Data disimpan di browser perangkat ini.</p>
+<form id="nqCapstoneForm">
+<div class="field"><label for="nqProjectName">Nama proyek</label><input id="nqProjectName" maxlength="90" placeholder="Contoh: Jaringan Lab TJKT" required=""/></div>
+<div class="field"><label for="nqProjectNeed">Kebutuhan jaringan</label><textarea id="nqProjectNeed" maxlength="500" placeholder="Jumlah ruang, perangkat, layanan, dan kebutuhan pengguna..." rows="3"></textarea></div>
+<div class="field"><label for="nqProjectTopology">Topologi yang dipilih</label><select id="nqProjectTopology"><option value="Star">Star</option><option value="Tree">Tree / Hierarki</option><option value="Hybrid">Hybrid</option><option value="Bus">Bus (untuk kajian)</option></select></div>
+<div class="field"><label for="nqProjectDevices">Perangkat utama</label><input id="nqProjectDevices" maxlength="300" placeholder="Router, switch, access point, server, PC..."/></div>
+<div class="field"><label for="nqProjectAddress">Rencana alamat IP</label><input id="nqProjectAddress" maxlength="120" placeholder="Contoh: 192.168.10.0/24"/></div>
+<div class="field"><label for="nqProjectVlan">Segmentasi VLAN</label><input id="nqProjectVlan" maxlength="160" placeholder="Contoh: VLAN 10 Siswa, VLAN 20 Guru"/></div>
+<div class="field"><label for="nqProjectSecurity">Keamanan &amp; layanan</label><textarea id="nqProjectSecurity" maxlength="500" placeholder="DHCP, DNS, firewall, kata sandi kuat, pembaruan..." rows="3"></textarea></div>
+<div class="field"><label for="nqProjectTest">Rencana pengujian</label><textarea id="nqProjectTest" maxlength="500" placeholder="Uji link, alamat IP, ping gateway, DNS, akses layanan..." rows="3"></textarea></div>
+<div class="row"><button class="btn p" type="submit">Simpan portofolio</button><button class="btn" id="nqCapstoneReset" type="button">Kosongkan form</button></div>
+<p aria-live="polite" class="msg" id="nqCapstoneStatus" role="status">Belum ada perubahan tersimpan.</p>
+</form>
+</article>
+<article class="glass card">
+<div class="section-kicker">02 / RUBRIK EVALUASI DIRI</div><h3>Audit kualitas NEXORA</h3>
+<p>Centang indikator yang benar-benar sudah tersedia dan dapat diuji. Setiap aspek bernilai maksimal 20 poin.</p>
+<div class="nq-rubric-list" id="nqRubricList">
+<fieldset class="nq-rubric"><legend>Desain UI/UX <b>20 poin</b></legend>
+<label><input data-rubric="ui" type="checkbox"/> Navigasi konsisten dan mudah ditemukan</label>
+<label><input data-rubric="ui" type="checkbox"/> Tampilan menyesuaikan HP, tablet, dan PC</label>
+<label><input data-rubric="ui" type="checkbox"/> Kontras, fokus keyboard, dan label aksesibel</label>
+<label><input data-rubric="ui" type="checkbox"/> Status, pesan, dan progres mudah dipahami</label>
+</fieldset>
+<fieldset class="nq-rubric"><legend>Kelengkapan Materi <b>20 poin</b></legend>
+<label><input data-rubric="materi" type="checkbox"/> Konsep dasar, perangkat, topologi, dan OSI/TCP-IP</label>
+<label><input data-rubric="materi" type="checkbox"/> IPv4, subnetting, VLAN, switching, dan routing</label>
+<label><input data-rubric="materi" type="checkbox"/> Layanan jaringan, wireless, dan keamanan</label>
+<label><input data-rubric="materi" type="checkbox"/> Tujuan, contoh, praktik, dan evaluasi tiap materi</label>
+</fieldset>
+<fieldset class="nq-rubric"><legend>Interaktif &amp; Inovatif <b>20 poin</b></legend>
+<label><input data-rubric="interaktif" type="checkbox"/> Simulasi memberi respons terhadap input pengguna</label>
+<label><input data-rubric="interaktif" type="checkbox"/> Kuis memberi nilai dan umpan balik</label>
+<label><input data-rubric="interaktif" type="checkbox"/> Pengguna dapat mengulang dan memperbaiki hasil</label>
+<label><input data-rubric="interaktif" type="checkbox"/> Aktivitas berjalan dengan tombol dan kontrol yang jelas</label>
+</fieldset>
+<fieldset class="nq-rubric"><legend>Inovasi Pembelajaran <b>20 poin</b></legend>
+<label><input data-rubric="pedagogi" type="checkbox"/> Materi disusun bertahap dari dasar ke lanjutan</label>
+<label><input data-rubric="pedagogi" type="checkbox"/> Misi berbasis masalah/kasus nyata bidang TJKT</label>
+<label><input data-rubric="pedagogi" type="checkbox"/> Gamifikasi mendukung tujuan belajar, bukan sekadar hiasan</label>
+<label><input data-rubric="pedagogi" type="checkbox"/> Ada refleksi, jurnal, dan proyek/portofolio</label>
+</fieldset>
+<fieldset class="nq-rubric"><legend>Inovasi Teknologi <b>20 poin</b></legend>
+<label><input data-rubric="teknologi" type="checkbox"/> Virtual lab/topologi membantu memahami konsep jaringan</label>
+<label><input data-rubric="teknologi" type="checkbox"/> Progres tersimpan dan dapat dipulihkan di browser</label>
+<label><input data-rubric="teknologi" type="checkbox"/> Data hasil belajar dapat diekspor sebagai bukti</label>
+<label><input data-rubric="teknologi" type="checkbox"/> Fitur guru/admin diberi batasan sesuai mode demo</label>
+</fieldset>
+</div>
+<div class="nq-score-panel"><div><small>SKOR AUDIT MANDIRI</small><strong id="nqRubricScore">0<span>/100</span></strong><p id="nqRubricAdvice">Mulai audit dengan memeriksa fitur satu per satu.</p></div><div class="nq-score-ring" id="nqScoreRing"><span id="nqRubricPercent">0%</span></div></div>
+<div class="row"><button class="btn p" id="nqRubricExport" type="button">Ekspor hasil audit</button><button class="btn" id="nqRubricClear" type="button">Reset centang</button></div>
+<p class="nq-cap-note">Catatan: skor ini adalah audit mandiri berdasarkan indikator yang dicentang, bukan jaminan nilai guru. Pastikan setiap indikator benar-benar berfungsi dan siapkan bukti demonstrasi.</p>
+</article>
+</div>
+</section>
+<footer>NEXORA TJKT • Media Pembelajaran Interaktif<br/>Learn • Simulate • Troubleshoot</footer>
+<script src="assets/scripts/module-01.js"></script>
+<script src="assets/scripts/module-02.js"></script>
+<script src="assets/scripts/module-03.js"></script>
+
+
+
+
+<script src="assets/scripts/module-04.js"></script>
+<script src="assets/scripts/module-05.js"></script>
+<script src="assets/scripts/module-06.js"></script>
+<script src="assets/scripts/module-07.js"></script>
+<script src="assets/scripts/module-08.js"></script>
+
+<script src="assets/scripts/module-09.js"></script>
+<script src="assets/scripts/module-10.js"></script>
+<script src="assets/scripts/module-11.js"></script>
+
+<script src="assets/scripts/module-12.js"></script>
+<script src="assets/scripts/module-13.js"></script>
+
+<!-- Quality pass: evidence-based rubric, printable teacher report, and responsive polish -->
+
+<script src="assets/scripts/module-14.js"></script>
+
+<script src="assets/scripts/module-15.js"></script>
+
+<!-- GSAP + ScrollTrigger: heading reveal per word -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<!-- Lenis smooth scrolling engine -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+<script src="assets/scripts/module-16.js"></script>
+<script src="assets/scripts/module-17.js"></script>
+
+</body></html>

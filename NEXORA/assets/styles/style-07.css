@@ -1,0 +1,94 @@
+
+/* NEXORA 2.0 — cohesive release layer */
+:root{
+ --navw:252px;--surface:#0b1728;--surface-2:#10233a;--line:rgba(148,177,211,.15);
+ --accent:#8b7cff;--accent-2:#52d9df;--text-soft:#9fb2ca;
+ --radius-xl:24px;
+}
+body{background:#050914;color:#edf3ff}
+.bg{background:radial-gradient(ellipse at 72% 10%,#19183c 0,transparent 36%),#050914}
+.bg i{opacity:.16;filter:blur(110px)}
+.bg:after{opacity:.13;background-size:64px 64px}
+.topnav{width:var(--navw);left:14px;top:14px;bottom:14px;padding:18px 13px;border-radius:22px;background:rgba(7,13,27,.94);border:1px solid var(--line);backdrop-filter:blur(22px)}
+.nav-brand{padding:8px 9px 20px}
+.nav-brand-mark{background:linear-gradient(140deg,#8b7cff,#52d9df);box-shadow:0 0 28px #8b7cff25}
+.nav-caption{margin-top:5px;color:#7285a5;font-size:9px}
+.topnav button{min-height:40px;padding:9px 11px;border-radius:12px;font-size:12px}
+.topnav button.active{background:linear-gradient(100deg,#7969ed2b,#52d9df12);border-color:#8b7cff38;color:#f4f2ff}
+.topnav button.active:before{content:"";position:absolute;left:-1px;top:8px;bottom:8px;width:3px;border-radius:5px;background:linear-gradient(#9b8cff,#52d9df)}
+.hud{width:auto;max-width:none;margin:14px 24px 0 calc(var(--navw) + 36px);min-height:62px;border-radius:17px;background:rgba(9,17,32,.88);border:1px solid var(--line);backdrop-filter:blur(18px)}
+main{width:auto;max-width:none;margin:22px 24px 150px calc(var(--navw) + 36px)}
+.view{min-height:60vh}
+.view.on{animation:releaseEnter .32s ease both}
+@keyframes releaseEnter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.glass,.card,.premium-feature,.gamecard,.stat,.dash-tile,.mission-node,.host,.lesson-content{border-color:var(--line)}
+.glass{background:rgba(11,23,40,.86);box-shadow:0 18px 55px #0003,inset 0 1px #ffffff08}
+.card,.premium-feature{border-radius:20px}
+.hero,.premium-banner{border-radius:25px;background:linear-gradient(125deg,rgba(17,31,55,.98),rgba(20,20,48,.94))}
+.hero{padding:clamp(26px,4vw,48px);gap:28px}
+.hero h1{max-width:12ch}
+.hero p{max-width:58ch}
+.btn{min-height:42px}
+.btn.p{background:linear-gradient(120deg,#7869ed,#3abdc8)}
+.dock{display:none!important}
+.section-head{margin-top:30px}
+.premium-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.premium-feature{background:linear-gradient(145deg,#111f35,#0c1728)}
+.mis.card{background:linear-gradient(145deg,#12243b,#0b1728)}
+#releaseToolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 24px 0 calc(var(--navw) + 36px);padding:0 0 4px}
+#releaseToolbar .crumb{font-size:12px;color:#8fa3bd}
+#releaseToolbar .crumb b{color:#eaf1ff}
+#releaseToolbar .toolbar-actions{display:flex;align-items:center;gap:8px}
+.nq-tool-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border-radius:11px;border:1px solid var(--line);background:#0d1b2d;color:#cbd9ec;font-size:12px;font-weight:700;cursor:pointer}
+.nq-tool-btn:hover{border-color:#8b7cff80;background:#17223c}
+.nq-tool-btn .key{font:10px ui-monospace,monospace;color:#91a5c0;border:1px solid #40516b;border-radius:5px;padding:2px 5px}
+#nqSearchLayer{position:fixed;inset:0;z-index:3000;display:none;align-items:flex-start;justify-content:center;padding:13vh 16px 24px;background:#020611bd;backdrop-filter:blur(10px)}
+#nqSearchLayer.open{display:flex}
+.nq-search-box{width:min(620px,100%);max-height:72vh;overflow:hidden;border:1px solid #8291c04a;border-radius:20px;background:#0a1425;box-shadow:0 35px 100px #000a}
+.nq-search-head{display:flex;gap:10px;padding:16px;border-bottom:1px solid var(--line)}
+.nq-search-head input{width:100%;border:0;background:transparent;box-shadow:none!important;font-size:15px}
+.nq-search-list{padding:9px;overflow:auto;max-height:55vh}
+.nq-search-item{display:flex;width:100%;align-items:center;gap:12px;padding:12px;border:0;border-radius:11px;background:transparent;color:#e9f1ff;text-align:left;cursor:pointer}
+.nq-search-item:hover,.nq-search-item:focus{background:#1a2942;outline:none}
+.nq-search-item .nq-search-ico{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:#8b7cff20;color:#a99dff}
+.nq-search-item small{display:block;color:#849ab5;font-size:10px}
+.nq-search-empty{padding:22px;text-align:center;color:#8ea1ba;font-size:13px}
+#nqMobileMenu{display:none}
+#nqBackdrop{display:none}
+.toast-bh{z-index:5000;position:fixed;right:22px;bottom:22px;max-width:min(420px,calc(100vw - 32px));padding:13px 16px;border-radius:13px;background:#13233a;border:1px solid #8b7cff66;color:#edf3ff;box-shadow:0 16px 40px #0008;font-size:13px}
+.nq-no-blackhole #blackholeCanvas{display:none!important}
+.nq-lite-effects .glass,.nq-lite-effects .card{backdrop-filter:none!important;box-shadow:0 8px 24px #0003}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #9b8cff!important;outline-offset:3px}
+button:disabled{cursor:not-allowed;opacity:.55}
+@media(max-width:1050px){
+ :root{--navw:225px}
+ .topnav{width:var(--navw)}
+ .premium-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:800px){
+ :root{--navw:0px}
+ .topnav{position:fixed;left:0;top:0;bottom:0;width:min(300px,86vw);z-index:2500;border-radius:0 22px 22px 0;transform:translateX(-105%);transition:transform .28s ease;box-shadow:18px 0 70px #0008}
+ body.nq-nav-open .topnav{transform:translateX(0)}
+ #nqBackdrop{display:block;position:fixed;inset:0;z-index:2400;background:#02061199;opacity:0;pointer-events:none;transition:opacity .25s}
+ body.nq-nav-open #nqBackdrop{opacity:1;pointer-events:auto}
+ #nqMobileMenu{display:inline-flex}
+ .hud{width:calc(100% - 24px);margin:12px 12px 0;top:0}
+ #releaseToolbar{margin:10px 12px 0;align-items:flex-start}
+ main{width:calc(100% - 24px);margin:18px 12px 100px}
+ .premium-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+ #releaseToolbar .crumb{display:none}
+ #releaseToolbar{justify-content:flex-end}
+ .premium-grid{grid-template-columns:1fr}
+ .hero{padding:22px}
+ .hero h1{font-size:clamp(36px,10vw,54px)}
+ .pc{max-width:100%}
+ .topnav{padding-top:22px}
+ .nq-tool-btn{padding:8px 10px}
+ .nq-tool-btn .tool-label{display:none}
+ .toast-bh{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

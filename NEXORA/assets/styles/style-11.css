@@ -1,0 +1,36 @@
+
+/* Blackhole visibility fix: keep the animated space layer above the body paint,
+   while keeping the actual interface above it and fully interactive. */
+.bg{
+  position:fixed!important;
+  inset:0!important;
+  z-index:0!important;
+  opacity:1!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+  background:transparent!important;
+}
+#blackholeCanvas{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  opacity:.58!important;
+  visibility:visible!important;
+  mix-blend-mode:screen!important;
+}
+body > .hud,
+body > .topnav,
+body > main,
+body > footer,
+body > .dock{
+  position:relative;
+  z-index:2;
+}
+body > .topnav{z-index:120}
+body > .hud{z-index:110}
+body.nq-no-blackhole #blackholeCanvas{display:block!important;opacity:.58!important}
+@media(max-width:760px){
+  #blackholeCanvas{opacity:.42!important}
+}

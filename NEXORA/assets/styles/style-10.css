@@ -1,0 +1,71 @@
+
+:root{--navw:264px}
+.topnav#mainSidebar{
+ position:fixed;z-index:80;left:16px;top:16px;bottom:16px;width:248px;
+ margin:0;padding:18px 12px 12px;display:flex;flex-direction:column;align-items:stretch;
+ gap:8px;overflow-y:auto;overflow-x:hidden;border-radius:22px;
+ background:linear-gradient(180deg,rgba(8,21,38,.98),rgba(7,16,30,.97));
+ border:1px solid rgba(116,157,194,.2);box-shadow:0 24px 70px #0007;
+ scrollbar-width:thin;scrollbar-color:#31516b transparent
+}
+.nav-brand{display:flex;align-items:center;gap:11px;padding:4px 7px 15px;margin:0 0 3px;border-bottom:1px solid var(--stroke)}
+.nav-brand-mark{width:40px;height:40px;flex:none;border-radius:13px;background:linear-gradient(145deg,#55d6c2,#648cff);color:#071624;box-shadow:0 8px 22px #55d6c226}
+.nav-brand-copy{min-width:0;flex:1;color:#eef8ff;font-size:12px;letter-spacing:1.3px}
+.nav-brand-copy small{display:block;color:#7f9bb5;font-size:9px;letter-spacing:1.2px;margin-top:3px}
+.sidebar-close{display:none!important}
+.nav-search{display:flex;align-items:center;gap:8px;margin:4px 3px 3px;padding:0 10px;height:39px;border:1px solid #8ba5c226;border-radius:11px;background:#0b1b2d;color:#83a1bb}
+.nav-search>span{font-size:19px}.nav-search input{width:100%;min-width:0;padding:0;border:0!important;outline:0;background:transparent!important;box-shadow:none!important;font-size:11px;color:var(--ink)}
+.nav-search kbd,.topnav button kbd{font:10px 'JetBrains Mono',monospace;color:#64819d;background:#142a40;border:1px solid #8ba5c222;border-radius:5px;padding:2px 5px}
+.nav-group{display:grid;gap:3px}
+.nav-caption{padding:11px 10px 4px;color:#64829e;font-size:9px;font-weight:800;letter-spacing:1.7px}
+.topnav#mainSidebar button{position:relative;display:flex;align-items:center;gap:11px;width:100%;min-height:39px;padding:8px 10px;border:1px solid transparent;border-radius:11px;background:transparent;color:#9db2c8;text-align:left;font-size:11px;font-weight:600;white-space:nowrap;transition:background .18s,border-color .18s,color .18s,transform .18s}
+.topnav#mainSidebar button>span:nth-child(2){overflow:hidden;text-overflow:ellipsis;flex:1}
+.topnav#mainSidebar button .nav-ico{display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:8px;background:#142a40;color:#7ca7c4;font-size:15px}
+.topnav#mainSidebar button:hover{background:#132b40;color:#eaf7ff;border-color:#55d6c226;transform:translateX(2px)}
+.topnav#mainSidebar button.active{background:linear-gradient(100deg,#16404a,#1b3151);border-color:#55d6c247;color:#efffff;box-shadow:inset 3px 0 #55d6c2}
+.topnav#mainSidebar button.active .nav-ico{background:#235b60;color:#8df2df}
+.topnav#mainSidebar .nav-pill{font:800 8px 'JetBrains Mono',monospace;letter-spacing:.5px;color:#91e8dc;background:#1b4b4c;border-radius:5px;padding:3px 5px}
+.nav-footer{margin-top:auto;padding-top:10px;border-top:1px solid var(--stroke);display:grid;gap:7px}
+.nav-status{display:flex;align-items:center;gap:9px;padding:8px 9px;color:#9cb3c8}
+.nav-status>i{width:8px;height:8px;border-radius:50%;background:#54e0aa;box-shadow:0 0 12px #54e0aa;flex:none}
+.nav-status b,.nav-status small{display:block}.nav-status b{font-size:10px;color:#cce0ee}.nav-status small{font-size:9px;color:#718ba5;margin-top:1px}
+.topnav#mainSidebar button.nav-login{justify-content:flex-start;margin-top:1px;background:linear-gradient(110deg,#238f91,#426bc1);color:white;border:0}
+.topnav#mainSidebar button.nav-login .nav-ico{background:#ffffff20;color:white}
+.topnav#mainSidebar .sidebar-collapse{justify-content:center;min-height:32px;color:#7893ac;font-size:10px}
+.topnav#mainSidebar .sidebar-collapse .collapse-label{flex:0}
+body.sidebar-collapsed{--navw:88px}
+body.sidebar-collapsed .topnav#mainSidebar{width:68px;padding:16px 8px}
+body.sidebar-collapsed .nav-brand{justify-content:center;padding:0 0 13px}
+body.sidebar-collapsed .nav-brand-copy,body.sidebar-collapsed .nav-caption,
+body.sidebar-collapsed .nav-search,body.sidebar-collapsed .topnav button>span:nth-child(2),
+body.sidebar-collapsed .topnav button kbd,body.sidebar-collapsed .nav-status,
+body.sidebar-collapsed .collapse-label,body.sidebar-collapsed .nav-pill{display:none!important}
+body.sidebar-collapsed .topnav#mainSidebar button{justify-content:center;padding:7px}
+body.sidebar-collapsed .topnav#mainSidebar button .nav-ico{width:34px;height:34px;font-size:17px}
+body.sidebar-collapsed .nav-footer{margin-top:auto}
+.hud{width:calc(100% - var(--navw) - 48px);margin-left:calc(var(--navw) + 24px);margin-right:24px}
+main{width:calc(100% - var(--navw) - 48px);max-width:none;margin-left:calc(var(--navw) + 24px);margin-right:24px}
+footer{width:calc(100% - var(--navw) - 48px);margin-left:calc(var(--navw) + 24px);margin-right:24px}
+.mobile-menu-trigger{display:none;border:1px solid var(--stroke);background:#142b40;border-radius:10px;width:36px;height:36px;color:var(--ink);font-size:17px}
+.sidebar-scrim{display:none}
+.topnav#mainSidebar .nav-group[hidden],.topnav#mainSidebar button[hidden]{display:none!important}
+@media(max-width:900px){
+ :root{--navw:0px}
+ .topnav#mainSidebar{width:min(290px,86vw);left:0;top:0;bottom:0;border-radius:0 22px 22px 0;transform:translateX(-105%);transition:transform .25s ease}
+ body.sidebar-open .topnav#mainSidebar{transform:translateX(0)}
+ .sidebar-scrim{display:block;position:fixed;inset:0;z-index:70;background:#020711a8;backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:.2s}
+ body.sidebar-open .sidebar-scrim{opacity:1;visibility:visible}
+ .sidebar-close{display:block!important;margin-left:auto;width:30px!important;min-height:30px!important;justify-content:center!important;padding:0!important;font-size:21px!important}
+ .mobile-menu-trigger{display:block}
+ .hud{width:calc(100% - 24px);margin:12px 12px 0;top:0}
+ main{width:calc(100% - 24px);margin:22px 12px 130px}
+ footer{width:calc(100% - 24px);margin:0 12px 120px}
+ body.sidebar-collapsed{--navw:0px}
+}
+@media(max-width:520px){
+ .hud{gap:8px;padding:9px 11px}
+ .hud .logo{flex:1;min-width:0}.hud .logo em{display:block;font-size:12px}
+ .hud .xp{order:5;flex-basis:100%}
+ .hud .backup-btn{display:none}
+}
+@media(prefers-reduced-motion:reduce){.topnav#mainSidebar,.sidebar-scrim{transition:none}}
